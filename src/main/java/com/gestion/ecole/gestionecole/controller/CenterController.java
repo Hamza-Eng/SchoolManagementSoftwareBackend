@@ -6,8 +6,11 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,19 +33,22 @@ public class CenterController implements ControllerGenerator<Centres> {
 	}
 
 	@Override
-	public Optional<Centres> findById(Long id) {
+	@GetMapping("/findById/{id}")
+	public Optional<Centres> findById(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
 	@Override
-	public Optional<Centres> findByCriteria(HashMap<String, String> map) {
+	@GetMapping("/findByCriteria")
+	public Optional<Centres> findByCriteria(@RequestBody HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
 	@Override
-	public Boolean delete(Long id) {
+	@DeleteMapping("/delete/{id}")
+	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -54,7 +60,7 @@ public class CenterController implements ControllerGenerator<Centres> {
 	}
 
 	@Override
-	@GetMapping("/getcenters")
+	@GetMapping("/findAll")
 	public List<Centres> findAll() {
 		// TODO Auto-generated method stub
 		return null;
