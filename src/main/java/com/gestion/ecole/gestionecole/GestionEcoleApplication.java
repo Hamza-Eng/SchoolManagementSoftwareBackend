@@ -22,7 +22,7 @@ public class GestionEcoleApplication {
 		SpringApplication.run(GestionEcoleApplication.class, args);
 	}
 
-
+	@Bean
 	CommandLineRunner start(CentersRepository centersRepository){
 
 		return arg->{

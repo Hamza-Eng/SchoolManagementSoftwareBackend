@@ -7,24 +7,45 @@ import lombok.NoArgsConstructor;
 
 import jakarta.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Classes {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 
-    private long id;
+	private long id;
 
-    private String nom;
+	private String nom;
 
-    private String numero;
+	private String numero;
 
-    private Timestamp createdAt;
+	private Date anneeUniver;
 
-    private Timestamp updatedAt;
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Niveaux niveaux;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Niveaux niveaux;
 
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdAt;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updatedAt;
+	// constructors, getters, and setters
+
+	// You can use lifecycle callback methods to update these timestamps
+	@PrePersist
+	protected void onCreate() {
+		createdAt = new Date();
+		updatedAt = createdAt;
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		updatedAt = new Date();
+	}
 
 }

@@ -17,35 +17,51 @@ import java.util.List;
 
 @Entity
 @Data
-@AllArgsConstructor @NoArgsConstructor @Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 
 public class Centres {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 
-    private Long id;
+	private Long id;
 
-    private String nomcentre;
+	private String nomcentre;
 
-    private String adresse;
+	private String adresse;
 
-    private String email;
+	private String email;
 
-    private String tel;
+	private String tel;
 
-    private String content;
-    @Temporal(TemporalType.DATE)
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+	private String content;
+	@Temporal(TemporalType.DATE)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 
-    private Date createdAt;
-    @Temporal(TemporalType.DATE)
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Etablissements etablissements;
+	@OneToMany(mappedBy = "centres")
+	private List<Filieres> filieresList;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdAt;
 
-    private Date updatedAt;
-    @ManyToOne( fetch = FetchType.LAZY)
-    private  Etablissements etablissements;
-    @OneToMany(mappedBy = "centres")
-    private List<Filieres> filieresList;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date updatedAt;
 
+	// constructors, getters, and setters
+
+	// You can use lifecycle callback methods to update these timestamps
+	@PrePersist
+	protected void onCreate() {
+		createdAt = new Date();
+		updatedAt = createdAt;
+	}
+
+	@PreUpdate
+    protected void onUpdate() {
+        updatedAt = new Date();
+	}
 
 }
