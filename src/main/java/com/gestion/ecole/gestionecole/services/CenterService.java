@@ -2,22 +2,55 @@ package com.gestion.ecole.gestionecole.services;
 
 import com.gestion.ecole.gestionecole.entities.Centres;
 import com.gestion.ecole.gestionecole.repositories.CentersRepository;
+import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
-@Service
-public class CenterService {
-    CentersRepository centersRepository;
+import java.util.Optional;
 
-    public CenterService(CentersRepository centersRepository){
-        this.centersRepository=centersRepository;
+@Service
+public class CenterService implements ServiceGeneratore<Centres> {
+    @Override
+    public Centres saveOrUpdate(Centres centres) {
+        return null;
     }
-    public List<Centres> findAllCenters(){
-        return  centersRepository.findAll();
+
+    @Override
+    public Optional<Centres> findById(Long id) {
+        return Optional.empty();
     }
-    public Centres addCenters(Centres centres){
-        return centersRepository.save(centres);
+
+    @Override
+    public Optional<Centres> findByCriteria(HashMap<String, String> map) {
+        return Optional.empty();
     }
+
+    @Override
+    public Boolean delete(Long id) {
+        return null;
+    }
+
+    @Override
+    public Boolean deleteAll() {
+        return null;
+    }
+
+    @Override
+    public List<Centres> findAll() {
+        return null;
+    }
+    //   CentersRepository centersRepository;
+
+//    public CenterService(CentersRepository centersRepository){
+//        this.centersRepository=centersRepository;
+//    }
+//    public List<Centres> findAllCenters(){
+//        return  centersRepository.findAll();
+//    }
+//    public Centres addCenters(Centres centres){
+//        return centersRepository.save(centres);
+//    }
 
 }
