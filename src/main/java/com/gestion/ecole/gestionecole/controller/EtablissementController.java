@@ -19,18 +19,18 @@ import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 @RestController
 @RequestMapping("/etablissement")
 @CrossOrigin
-public class EtablissementController implements ControllerGenerator<Etablissements>{
+public class EtablissementController implements ControllerGenerator<Etablissements> {
 
 	@Override
 	@PostMapping("/saveorupdate")
-	public Etablissements saveOrUpdate(Etablissements t) {
+	public Etablissements saveOrUpdate(@RequestBody Etablissements t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	@GetMapping("findById/{id}")
-	public Optional<Etablissements> findById(@PathVariable(name="id") Long id) {
+	public Optional<Etablissements> findById(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}

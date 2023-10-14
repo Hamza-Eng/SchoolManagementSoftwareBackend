@@ -16,7 +16,7 @@ public class EmployeController implements ControllerGenerator<Employes> {
 
 	@PostMapping("/saveorupdate")
 	@Override
-	public Employes saveOrUpdate(Employes t) {
+	public Employes saveOrUpdate(@RequestBody Employes t) {
 		// TODO Auto-generated method stub
 		return null;
 	}

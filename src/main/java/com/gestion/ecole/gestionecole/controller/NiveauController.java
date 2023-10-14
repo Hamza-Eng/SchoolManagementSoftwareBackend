@@ -15,7 +15,7 @@ public class NiveauController implements ControllerGenerator<Niveaux> {
 
 	@PostMapping("/saveorupdate")
 	@Override
-	public Niveaux saveOrUpdate(Niveaux t) {
+	public Niveaux saveOrUpdate(@RequestBody Niveaux t) {
 		// TODO Auto-generated method stub
 		return null;
 	}

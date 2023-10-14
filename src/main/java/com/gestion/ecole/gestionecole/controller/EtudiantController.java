@@ -4,26 +4,34 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.gestion.ecole.gestionecole.entities.Etudiants;
 import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
+
+@CrossOrigin
+@RestController
+@RequestMapping("/etudiant")
 
 public class EtudiantController implements ControllerGenerator<Etudiants> {
 
 	@Override
 	@PostMapping("/saveOrUpdate")
-	public Etudiants saveOrUpdate(Etudiants t) {
+	public Etudiants saveOrUpdate(@RequestBody Etudiants t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	@GetMapping("/findById/{id}")
-	public Optional<Etudiants> findById(@PathVariable(name = "id")Long id) {
+	public Optional<Etudiants> findById(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
@@ -55,5 +63,5 @@ public class EtudiantController implements ControllerGenerator<Etudiants> {
 		// TODO Auto-generated method stub
 		return null;
 	}
-   
+
 }

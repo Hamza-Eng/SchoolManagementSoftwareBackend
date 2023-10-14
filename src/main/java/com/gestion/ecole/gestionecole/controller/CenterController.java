@@ -27,7 +27,7 @@ public class CenterController implements ControllerGenerator<Centres> {
 
 	@Override
 	@PostMapping("/add")
-	public Centres saveOrUpdate(Centres t) {
+	public Centres saveOrUpdate(@RequestBody Centres t) {
 		// TODO Auto-generated method stub
 		return null;
 	}
