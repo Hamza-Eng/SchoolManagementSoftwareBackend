@@ -1,7 +1,5 @@
 package com.gestion.ecole.gestionecole.entities;
 
-
-
 import java.util.Date;
 
 import jakarta.persistence.Entity;
@@ -18,63 +16,65 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
 @Table
-@Data @AllArgsConstructor @NoArgsConstructor @Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Employes {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 
-    private long id;
+	private long id;
 
-    private String type;
+	private String type;
 
-    private String nom;
+	private String nom;
 
-    private String prenom;
+	private String prenom;
 
-    private String cin;
+	private String cin;
 
-    private String ville;
+	private String ville;
 
-    private String sexe;
+	private String sexe;
 
-    private Date datenaissance;
+	private Date datenaissance;
 
-    private String adresse;
+	private String adresse;
 
-    private String email;
+	private String email;
 
-    private String tel;
+	private String tel;
 
-    private String portable;
+	private String portable;
 
-    private String diplome;
+	private String diplome;
 
-    private String niveau;
+	private String niveau;
 
-    private String poste;
+	private String poste;
 
-    private String experience;
+	private String experience;
 
-    private Integer salaire;
+	private Integer salaire;
 
-    private String typecontrat;
+	private String typecontrat;
 
-    private String cv;
+	private String cv;
 
-    private String photo;
+	private String photo;
 
-    private Integer status;
+	private Integer status;
 
-    private Long anneeunvId;
+	private Long anneeunvId;
 
-    private Long centreId;
+	private Long centreId;
 
-    private Long userId;
+	private Long userId;
 
-    @Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -90,10 +90,8 @@ public class Employes {
 	}
 
 	@PreUpdate
-    protected void onUpdate() {
-        updatedAt = new Date();
+	protected void onUpdate() {
+		updatedAt = new Date();
 	}
-    
-
 
 }

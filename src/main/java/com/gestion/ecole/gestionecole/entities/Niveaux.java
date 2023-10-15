@@ -3,8 +3,6 @@ package com.gestion.ecole.gestionecole.entities;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -41,14 +39,13 @@ public class Niveaux {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Cycles cycles;
 
-	
 	@ManyToOne
 	@JoinColumn(name = "filiere_id")
 	private Filieres filiere;
-	
+
 	@OneToMany(mappedBy = "niveaux")
 	private List<Classes> classes;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 
@@ -65,8 +62,8 @@ public class Niveaux {
 	}
 
 	@PreUpdate
-    protected void onUpdate() {
-        updatedAt = new Date();
+	protected void onUpdate() {
+		updatedAt = new Date();
 	}
 
 }

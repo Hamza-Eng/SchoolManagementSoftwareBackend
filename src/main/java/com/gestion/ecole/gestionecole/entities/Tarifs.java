@@ -20,20 +20,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor @Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table
 public class Tarifs {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
-    @Column(name = "id")
-    private long id;
-    @Basic
-    @Column(name = "droit")
-    private String droit;
-    @Basic
-    @Column(name = "montant")
-    private BigDecimal montant;
-    @Temporal(TemporalType.TIMESTAMP)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@Column(name = "id")
+	private long id;
+	@Basic
+	@Column(name = "droit")
+	private String droit;
+	@Basic
+	@Column(name = "montant")
+	private BigDecimal montant;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -49,9 +52,8 @@ public class Tarifs {
 	}
 
 	@PreUpdate
-    protected void onUpdate() {
-        updatedAt = new Date();
+	protected void onUpdate() {
+		updatedAt = new Date();
 	}
-
 
 }

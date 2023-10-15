@@ -1,10 +1,10 @@
 package com.gestion.ecole.gestionecole.repositories;
 
-import com.gestion.ecole.gestionecole.entities.Centres;
-import com.gestion.ecole.gestionecole.entities.Classes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.gestion.ecole.gestionecole.entities.Classes;
+
 @Repository
-public interface ClassesRepository extends JpaRepository<Classes,Long> {
+public interface ClassesRepository extends JpaRepository<Classes, Long> {
 }

@@ -1,10 +1,10 @@
 package com.gestion.ecole.gestionecole.repositories;
 
-import com.gestion.ecole.gestionecole.entities.Etudiants;
-import com.gestion.ecole.gestionecole.entities.Niveaux;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.gestion.ecole.gestionecole.entities.Niveaux;
+
 @Repository
-public interface NiveauxRepository extends JpaRepository<Niveaux,Long> {
+public interface NiveauxRepository extends JpaRepository<Niveaux, Long> {
 }

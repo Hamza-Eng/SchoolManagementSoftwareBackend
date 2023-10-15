@@ -1,10 +1,7 @@
 package com.gestion.ecole.gestionecole.entities;
 
-
 import java.util.Date;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
@@ -36,7 +33,7 @@ public class Filieres {
 	@Id
 	@Column(name = "id")
 	private long id;
-	
+
 	@Basic
 	@Column(name = "nomFiliere")
 	private String nomfiliere;
@@ -72,8 +69,8 @@ public class Filieres {
 	}
 
 	@PreUpdate
-    protected void onUpdate() {
-        updatedAt = new Date();
+	protected void onUpdate() {
+		updatedAt = new Date();
 	}
 
 }

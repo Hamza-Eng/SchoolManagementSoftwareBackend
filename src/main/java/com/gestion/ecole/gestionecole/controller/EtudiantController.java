@@ -23,10 +23,10 @@ import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 @RequestMapping("/etudiant")
 
 public class EtudiantController implements ControllerGenerator<Etudiants> {
- 
+
 	@Autowired
 	EtudiantService service;
-	
+
 	@Override
 	@PostMapping("/saveOrUpdate")
 	public Etudiants saveOrUpdate(@RequestBody Etudiants t) {

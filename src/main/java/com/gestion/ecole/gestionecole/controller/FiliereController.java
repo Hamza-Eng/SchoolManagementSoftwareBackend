@@ -17,19 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gestion.ecole.gestionecole.entities.Filieres;
 import com.gestion.ecole.gestionecole.services.FilieresService;
 import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/filiere")
 
 public class FiliereController implements ControllerGenerator<Filieres> {
 
-	
 	@Autowired
 	FilieresService service;
-	
-	
-	
-	
+
 	@Override
 	@PostMapping("/saveOrUpdate")
 	public Filieres saveOrUpdate(@RequestBody Filieres t) {
@@ -53,7 +50,7 @@ public class FiliereController implements ControllerGenerator<Filieres> {
 
 	@Override
 	@DeleteMapping("/delete/{id}")
-	public Boolean delete(@PathVariable(name = "id")Long id) {
+	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}

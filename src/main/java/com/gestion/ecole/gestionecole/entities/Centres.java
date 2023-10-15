@@ -52,7 +52,6 @@ public class Centres {
 	@OneToMany(mappedBy = "centre")
 	private List<Cycles> cycles;
 
-	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 
@@ -69,8 +68,8 @@ public class Centres {
 	}
 
 	@PreUpdate
-    protected void onUpdate() {
-        updatedAt = new Date();
+	protected void onUpdate() {
+		updatedAt = new Date();
 	}
 
 }

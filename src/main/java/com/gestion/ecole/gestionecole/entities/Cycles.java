@@ -1,10 +1,7 @@
 package com.gestion.ecole.gestionecole.entities;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,28 +21,28 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Data @AllArgsConstructor 
-@NoArgsConstructor 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Table
 public class Cycles {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 
-    private long id;
+	private long id;
 
-    private String name;
+	private String name;
 
-    private String description;
-    @ManyToOne
-    @JoinColumn(name = "centre_id")
-    private Centres centre;
-    
-    @OneToMany(mappedBy = "cycle")    
-    private List<Filieres> filieres;
-    
+	private String description;
+	@ManyToOne
+	@JoinColumn(name = "centre_id")
+	private Centres centre;
 
-    @Temporal(TemporalType.TIMESTAMP)
+	@OneToMany(mappedBy = "cycle")
+	private List<Filieres> filieres;
+
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -61,13 +58,8 @@ public class Cycles {
 	}
 
 	@PreUpdate
-    protected void onUpdate() {
-        updatedAt = new Date();
+	protected void onUpdate() {
+		updatedAt = new Date();
 	}
-
-   
-
-   
-
 
 }

@@ -1,9 +1,6 @@
 package com.gestion.ecole.gestionecole.entities;
 
 import java.util.Date;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,61 +18,60 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
 @Builder
 @Table
 @Data
-@AllArgsConstructor @NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class Etudiants {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 
-    private Long id;
+	private Long id;
 
-    private String numero;
+	private String numero;
 
-    private String nom;
+	private String nom;
 
-    private String prenom;
+	private String prenom;
 
-    private String sexe;
+	private String sexe;
 
-    private Date datenaissance;
+	private Date datenaissance;
 
-    private String nationalite;
+	private String nationalite;
 
-    private String oriente;
+	private String oriente;
 
-    private String adresse;
+	private String adresse;
 
-    private Integer reduction;
+	private Integer reduction;
 
-    private String maladie;
+	private String maladie;
 
-    private String nompere;
+	private String nompere;
 
-    private String nommere;
+	private String nommere;
 
-    private Integer contactpri;
+	private Integer contactpri;
 
-    private Integer contactsec;
-    private String email;
+	private Integer contactsec;
+	private String email;
 
-    private String cantine;
+	private String cantine;
 
-    private String photo;
+	private String photo;
 
-    private String descc;
+	private String descc;
 
-    private long userId;
+	private long userId;
 
-       
-    @ManyToOne
-    @JoinColumn(name = "classe_id")
-    private Classes classe;
-    
-    @Temporal(TemporalType.TIMESTAMP)
+	@ManyToOne
+	@JoinColumn(name = "classe_id")
+	private Classes classe;
+
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -91,9 +87,8 @@ public class Etudiants {
 	}
 
 	@PreUpdate
-    protected void onUpdate() {
-        updatedAt = new Date();
+	protected void onUpdate() {
+		updatedAt = new Date();
 	}
-
 
 }

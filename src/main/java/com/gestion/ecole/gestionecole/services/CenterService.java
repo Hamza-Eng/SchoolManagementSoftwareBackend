@@ -1,18 +1,20 @@
 package com.gestion.ecole.gestionecole.services;
 
-import com.gestion.ecole.gestionecole.entities.Centres;
-import com.gestion.ecole.gestionecole.repositories.CentersRepository;
-import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.gestion.ecole.gestionecole.entities.Centres;
+import com.gestion.ecole.gestionecole.repositories.CentersRepository;
+import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
+
 /***
  * @author hamza
  * 
- * */
+ */
 @Service
 public class CenterService implements ServiceGeneratore<Centres> {
 	@Autowired
