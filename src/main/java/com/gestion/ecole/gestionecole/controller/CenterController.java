@@ -27,16 +27,16 @@ public class CenterController implements ControllerGenerator<Centres> {
 
 	@Override
 	@PostMapping("/add")
-	public Centres saveOrUpdate(@RequestBody Centres t) {
+	public Centres saveOrUpdate(@RequestBody Centres center) {
 		// TODO Auto-generated method stub
-		return null;
+		return service.saveOrUpdate(center);
 	}
 
 	@Override
 	@GetMapping("/findById/{id}")
 	public Optional<Centres> findById(@PathVariable(name = "id") Long id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+
+		return service.findById(id);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class CenterController implements ControllerGenerator<Centres> {
 	@DeleteMapping("/delete/{id}")
 	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return service.delete(id);
 	}
 
 	@Override
@@ -62,8 +62,8 @@ public class CenterController implements ControllerGenerator<Centres> {
 	@Override
 	@GetMapping("/findAll")
 	public List<Centres> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		return service.findAll();
 	}
 
 }

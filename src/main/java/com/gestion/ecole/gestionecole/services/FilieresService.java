@@ -1,22 +1,28 @@
 package com.gestion.ecole.gestionecole.services;
 
-import com.gestion.ecole.gestionecole.entities.Employes;
 import com.gestion.ecole.gestionecole.entities.Filieres;
+import com.gestion.ecole.gestionecole.repositories.FilieresRepository;
 import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class FilieresService implements ServiceGeneratore <Filieres> {
+    @Autowired
+    FilieresRepository repo;
     @Override
     public Filieres saveOrUpdate(Filieres filieres) {
-        return null;
+
+        return repo.save(filieres);
     }
 
     @Override
     public Optional<Filieres> findById(Long id) {
-        return Optional.empty();
+        return repo.findById(id);
     }
 
     @Override
@@ -26,7 +32,14 @@ public class FilieresService implements ServiceGeneratore <Filieres> {
 
     @Override
     public Boolean delete(Long id) {
-        return null;
+
+        try {
+            repo.deleteById(id);
+            return  true;
+        } catch (Exception e){
+            e.getMessage();
+            return  false;
+        }
     }
 
     @Override
@@ -36,6 +49,6 @@ public class FilieresService implements ServiceGeneratore <Filieres> {
 
     @Override
     public List<Filieres> findAll() {
-        return null;
+        return repo.findAll();
     }
 }

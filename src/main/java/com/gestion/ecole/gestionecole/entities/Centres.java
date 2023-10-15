@@ -51,14 +51,7 @@ public class Centres {
 	private Etablissements etablissements;
 	@OneToMany(mappedBy = "centre")
 	private List<Cycles> cycles;
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;

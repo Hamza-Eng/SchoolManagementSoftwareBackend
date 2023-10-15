@@ -1,21 +1,27 @@
 package com.gestion.ecole.gestionecole.services;
 
 import com.gestion.ecole.gestionecole.entities.Tarifs;
+import com.gestion.ecole.gestionecole.repositories.TarifsRepository;
 import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TarifsService implements ServiceGeneratore <Tarifs> {
+    @Autowired
+    TarifsRepository repo;
     @Override
     public Tarifs saveOrUpdate(Tarifs tarifs) {
-        return null;
+        return repo.save(tarifs);
     }
 
     @Override
     public Optional<Tarifs> findById(Long id) {
-        return Optional.empty();
+        return repo.findById(id);
     }
 
     @Override
@@ -25,7 +31,13 @@ public class TarifsService implements ServiceGeneratore <Tarifs> {
 
     @Override
     public Boolean delete(Long id) {
-        return null;
+        try {
+            repo.deleteById(id);
+            return  true;
+        } catch (Exception e){
+            e.getMessage();
+            return  false;
+        }
     }
 
     @Override
@@ -35,6 +47,6 @@ public class TarifsService implements ServiceGeneratore <Tarifs> {
 
     @Override
     public List<Tarifs> findAll() {
-        return null;
+        return repo.findAll();
     }
 }

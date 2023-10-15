@@ -12,14 +12,16 @@ import java.util.Optional;
 
 @Service
 public class CenterService implements ServiceGeneratore<Centres> {
+    @Autowired
+    CentersRepository centersRepository;
     @Override
-    public Centres saveOrUpdate(Centres centres) {
-        return null;
+    public Centres saveOrUpdate(Centres centre) {
+        return centersRepository.save(centre);
     }
 
     @Override
     public Optional<Centres> findById(Long id) {
-        return Optional.empty();
+        return centersRepository.findById(id);
     }
 
     @Override
@@ -29,17 +31,18 @@ public class CenterService implements ServiceGeneratore<Centres> {
 
     @Override
     public Boolean delete(Long id) {
-        return null;
+        return centersRepository.existsById(id);
     }
 
     @Override
     public Boolean deleteAll() {
-        return null;
+         return null;
+
     }
 
     @Override
     public List<Centres> findAll() {
-        return null;
+        return centersRepository.findAll();
     }
     //   CentersRepository centersRepository;
 
