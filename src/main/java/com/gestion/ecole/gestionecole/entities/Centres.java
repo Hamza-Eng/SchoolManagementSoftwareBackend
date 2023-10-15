@@ -1,25 +1,33 @@
 package com.gestion.ecole.gestionecole.entities;
 
+import java.util.Date;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import jakarta.persistence.*;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.Mapping;
-
-import java.sql.Timestamp;
-import java.text.Format;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table
 
 public class Centres {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,8 +49,16 @@ public class Centres {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Etablissements etablissements;
-	@OneToMany(mappedBy = "centres")
-	private List<Filieres> filieresList;
+	@OneToMany(mappedBy = "centre")
+	private List<Cycles> cycles;
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;

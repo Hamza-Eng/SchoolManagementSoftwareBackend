@@ -8,12 +8,16 @@ import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table
 public class Classes {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
@@ -26,8 +30,12 @@ public class Classes {
 
 	private Date anneeUniver;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
+	@JoinColumn(name = "niveaux_id")
 	private Niveaux niveaux;
+	
+	@OneToMany(mappedBy = "classe")
+	private List<Etudiants> etudiants;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
