@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+/***
+ * @author hamza
+ * 
+ * */
 @Service
 public class EtablissmentsService implements ServiceGeneratore <Etablissements> {
     @Autowired
