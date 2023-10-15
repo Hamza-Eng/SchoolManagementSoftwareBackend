@@ -4,19 +4,15 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Stream;
 
+import com.gestion.ecole.gestionecole.entities.*;
+import com.gestion.ecole.gestionecole.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
-import com.gestion.ecole.gestionecole.entities.Centres;
-import com.gestion.ecole.gestionecole.entities.Etablissements;
-import com.gestion.ecole.gestionecole.entities.Etudiants;
-import com.gestion.ecole.gestionecole.repositories.CentersRepository;
-import com.gestion.ecole.gestionecole.repositories.EtablissmentsRepository;
-import com.gestion.ecole.gestionecole.repositories.EtudiantsRepository;
 
 @SpringBootApplication
 public class GestionEcoleApplication {
@@ -27,7 +23,9 @@ public class GestionEcoleApplication {
 
 	@Bean
 	CommandLineRunner start(EtudiantsRepository erepo, EtablissmentsRepository repo,
-			CentersRepository centersRepository) {
+							CentersRepository centersRepository, CyclesRepository cyclesRepository,
+							FilieresRepository filieresRepository, NiveauxRepository niveauxRepository,
+							ClassesRepository classesRepository, EtudiantsRepository etudiantsRepository) {
 
 		return arg -> {
 //			List<Etudiants> etudiants= new ArrayList<Etudiants>();
@@ -42,10 +40,49 @@ public class GestionEcoleApplication {
 			centres.add(Centres.builder().build());
 
 			List<Etablissements> etablissements = new ArrayList<>();
-			etablissements.add(Etablissements.builder().banque("9876543218521498").build());
+			etablissements.add(Etablissements.builder().banque("9876543218521498").adresse("azilal").build());
 			etablissements.add(Etablissements.builder().build());
 			etablissements.add(Etablissements.builder().build());
 			etablissements.add(Etablissements.builder().build());
+
+
+			List<Employes> employes = new ArrayList<>();
+			employes.add(Employes.builder().build());
+			employes.add(Employes.builder().build());
+			employes.add(Employes.builder().build());
+			employes.add(Employes.builder().build());
+
+			List<Cycles> cycles = new ArrayList<>();
+			cycles.add(Cycles.builder().build());
+			cycles.add(Cycles.builder().build());
+			cycles.add(Cycles.builder().build());
+			cycles.add(Cycles.builder().build());
+
+			List<Filieres> filieres = new ArrayList<>();
+			filieres.add(Filieres.builder().build());
+			filieres.add(Filieres.builder().build());
+			filieres.add(Filieres.builder().build());
+			filieres.add(Filieres.builder().build());
+
+			List<Niveaux> niveaux = new ArrayList<>();
+			niveaux.add(Niveaux.builder().build());
+			niveaux.add(Niveaux.builder().build());
+			niveaux.add(Niveaux.builder().build());
+			niveaux.add(Niveaux.builder().build());
+
+			List<Classes> classes = new ArrayList<>();
+			classes.add(Classes.builder().build());
+			classes.add(Classes.builder().build());
+			classes.add(Classes.builder().build());
+			classes.add(Classes.builder().build());
+
+			List<Etudiants> etudiants = new ArrayList<>();
+			etudiants.add(Etudiants.builder().build());
+			etudiants.add(Etudiants.builder().build());
+			etudiants.add(Etudiants.builder().build());
+			etudiants.add(Etudiants.builder().build());
+
+
 
 			etablissements.forEach(element -> {
 
@@ -55,6 +92,30 @@ public class GestionEcoleApplication {
 				element.setEtablissements(etablissements.get(0));
 				centersRepository.save(element);
 			});
+
+			cycles.forEach(elem->{
+				elem.setCentre(centres.get(0));
+				cyclesRepository.save(elem);
+			});
+			filieres.forEach(element->{
+				element.setCycle(cycles.get(0));
+				filieresRepository.save(element);
+			});
+			niveaux.forEach(elem->{
+				elem.setFiliere(filieres.get(1));
+				niveauxRepository.save(elem);
+			});
+			classes.forEach(elem->{
+				elem.setNiveaux(niveaux.get(0));
+				classesRepository.save(elem);
+			});
+			 etudiants.forEach(elem->{
+				 elem.setClasse(classes.get(0));
+				 etudiantsRepository.save(elem);
+			 });
+
+
+
 
 //			Stream.of("azilal", "Beni MElla", "kech").forEach(name -> {
 //				Centres centres = new Centres();
