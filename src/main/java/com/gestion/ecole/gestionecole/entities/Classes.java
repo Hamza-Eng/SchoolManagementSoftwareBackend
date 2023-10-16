@@ -4,7 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,7 +29,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Table
-public class Classes {
+public class Classes{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3070272023916667889L;
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 
@@ -41,7 +48,7 @@ public class Classes {
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date anneeUniver;
 
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "niveaux_id")
 	private Niveaux niveaux;
 

@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,6 +28,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @Table
 public class Cycles {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1617879395682967578L;
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 
@@ -35,11 +41,11 @@ public class Cycles {
 	private String name;
 
 	private String description;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "centre_id")
 	private Centres centre;
 
-	@OneToMany(mappedBy = "cycle")
+	@OneToMany(mappedBy = "cycle",fetch = FetchType.EAGER)
 	private List<Filieres> filieres;
 
 	@Temporal(TemporalType.TIMESTAMP)

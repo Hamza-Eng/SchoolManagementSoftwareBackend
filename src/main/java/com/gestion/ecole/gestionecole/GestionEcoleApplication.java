@@ -1,18 +1,28 @@
 package com.gestion.ecole.gestionecole;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Random;
-import java.util.stream.Stream;
 
-import com.gestion.ecole.gestionecole.entities.*;
-import com.gestion.ecole.gestionecole.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import com.gestion.ecole.gestionecole.entities.Centres;
+import com.gestion.ecole.gestionecole.entities.Classes;
+import com.gestion.ecole.gestionecole.entities.Cycles;
+import com.gestion.ecole.gestionecole.entities.Employes;
+import com.gestion.ecole.gestionecole.entities.Etablissements;
+import com.gestion.ecole.gestionecole.entities.Etudiants;
+import com.gestion.ecole.gestionecole.entities.Filieres;
+import com.gestion.ecole.gestionecole.entities.Niveaux;
+import com.gestion.ecole.gestionecole.repositories.CentersRepository;
+import com.gestion.ecole.gestionecole.repositories.ClassesRepository;
+import com.gestion.ecole.gestionecole.repositories.CyclesRepository;
+import com.gestion.ecole.gestionecole.repositories.EtablissmentsRepository;
+import com.gestion.ecole.gestionecole.repositories.EtudiantsRepository;
+import com.gestion.ecole.gestionecole.repositories.FilieresRepository;
+import com.gestion.ecole.gestionecole.repositories.NiveauxRepository;
 
 @SpringBootApplication
 public class GestionEcoleApplication {
