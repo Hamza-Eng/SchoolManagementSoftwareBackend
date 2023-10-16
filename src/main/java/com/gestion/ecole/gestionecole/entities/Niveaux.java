@@ -3,9 +3,10 @@ package com.gestion.ecole.gestionecole.entities;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -36,11 +37,9 @@ public class Niveaux {
 
 	private String tarife;;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Cycles cycles;
-
 	@ManyToOne
 	@JoinColumn(name = "filiere_id")
+	@JsonIgnore
 	private Filieres filiere;
 
 	@OneToMany(mappedBy = "niveaux")
