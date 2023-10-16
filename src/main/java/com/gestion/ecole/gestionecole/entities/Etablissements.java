@@ -3,8 +3,6 @@ package com.gestion.ecole.gestionecole.entities;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -70,7 +68,7 @@ public class Etablissements {
 	private String image;
 
 	private long userId;
-	@JsonIgnore 
+	
 	@OneToMany(mappedBy = "etablissements")
 	private List<Centres> centres;
 

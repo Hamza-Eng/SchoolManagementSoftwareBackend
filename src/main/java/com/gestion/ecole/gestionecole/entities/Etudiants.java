@@ -2,6 +2,8 @@ package com.gestion.ecole.gestionecole.entities;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -69,6 +71,7 @@ public class Etudiants {
 
 	@ManyToOne
 	@JoinColumn(name = "classe_id")
+	@JsonIgnore
 	private Classes classe;
 
 	@Temporal(TemporalType.TIMESTAMP)

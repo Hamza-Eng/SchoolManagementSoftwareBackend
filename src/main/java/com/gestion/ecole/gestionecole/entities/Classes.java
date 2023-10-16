@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -50,6 +51,7 @@ public class Classes{
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "niveaux_id")
+	@JsonIgnore
 	private Niveaux niveaux;
 
 	@OneToMany(mappedBy = "classe")

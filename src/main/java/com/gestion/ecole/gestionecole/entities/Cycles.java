@@ -3,6 +3,8 @@ package com.gestion.ecole.gestionecole.entities;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -43,6 +45,7 @@ public class Cycles {
 	private String description;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "centre_id")
+	@JsonIgnore
 	private Centres centre;
 
 	@OneToMany(mappedBy = "cycle",fetch = FetchType.EAGER)

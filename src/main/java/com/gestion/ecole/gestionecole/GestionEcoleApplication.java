@@ -125,7 +125,7 @@ public class GestionEcoleApplication {
 			 });
 
 
-
+			 
 
 //			Stream.of("azilal", "Beni MElla", "kech").forEach(name -> {
 //				Centres centres = new Centres();
