@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -52,7 +53,7 @@ public class Centres {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Etablissements etablissements;
 	
-	@OneToMany(mappedBy = "centre")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "centre" )
 	private List<Cycles> cycles;
 
 	@Temporal(TemporalType.TIMESTAMP)

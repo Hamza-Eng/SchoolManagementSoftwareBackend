@@ -3,6 +3,7 @@ package com.gestion.ecole.gestionecole.entities;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -69,7 +70,7 @@ public class Etablissements {
 
 	private long userId;
 	
-	@OneToMany(mappedBy = "etablissements")
+	@OneToMany(mappedBy = "etablissements",cascade = CascadeType.ALL)
 	private List<Centres> centres;
 
 	@Temporal(TemporalType.TIMESTAMP)

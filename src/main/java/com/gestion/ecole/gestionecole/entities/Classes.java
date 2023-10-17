@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -54,7 +55,7 @@ public class Classes{
 	@JsonIgnore
 	private Niveaux niveaux;
 
-	@OneToMany(mappedBy = "classe")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "classe")
 	private List<Etudiants> etudiants;
 
 	@Temporal(TemporalType.TIMESTAMP)

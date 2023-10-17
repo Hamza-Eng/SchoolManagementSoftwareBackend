@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Basic;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -54,7 +55,7 @@ public class Filieres {
 	@JsonIgnore
 	private Cycles cycle;
 	
-	@OneToMany(mappedBy = "filiere")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "filiere")
 	private List<Niveaux> niveauxs;
 
 	@Temporal(TemporalType.TIMESTAMP)

@@ -34,7 +34,7 @@ public class EtablissementController implements ControllerGenerator<Etablissemen
 	}
 
 	@Override
-	@GetMapping("findById/{id}")
+	@GetMapping("/findById/{id}")
 	public Optional<Etablissements> findById(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.findById(id);

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -48,7 +49,7 @@ public class Cycles {
 	@JsonIgnore
 	private Centres centre;
 
-	@OneToMany(mappedBy = "cycle",fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "cycle",fetch = FetchType.EAGER)
 	private List<Filieres> filieres;
 
 	@Temporal(TemporalType.TIMESTAMP)
