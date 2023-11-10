@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gestion.ecole.gestionecole.entities.Centres;
 import com.gestion.ecole.gestionecole.entities.Classes;
 import com.gestion.ecole.gestionecole.entities.Cycles;
@@ -38,6 +39,17 @@ public class GestionEcoleApplication {
 							ClassesRepository classesRepository, EtudiantsRepository etudiantsRepository) {
 
 		return arg -> {
+			
+			
+			Etablissements etablissements2 = new Etablissements();
+
+	        // Use ObjectMapper to convert the object to JSON
+	        ObjectMapper objectMapper = new ObjectMapper();
+	        String json = objectMapper.writeValueAsString(etablissements2);
+
+	        // Print the JSON
+	        System.out.println(json);
+			
 //			List<Etudiants> etudiants= new ArrayList<Etudiants>();
 //			etudiants.add(Etudiants.builder().build());
 //			etudiants.add(Etudiants.builder().build());
