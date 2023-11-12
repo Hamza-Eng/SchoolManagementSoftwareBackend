@@ -18,7 +18,7 @@ import com.gestion.ecole.gestionecole.entities.Classes;
 import com.gestion.ecole.gestionecole.services.ClassesService;
 import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/class")
 
