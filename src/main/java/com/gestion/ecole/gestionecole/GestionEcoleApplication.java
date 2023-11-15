@@ -2,6 +2,7 @@ package com.gestion.ecole.gestionecole;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
@@ -97,13 +98,13 @@ public class GestionEcoleApplication {
 			niveaux.add(Niveaux.builder().build());
 
 			List<Classes> classes = new ArrayList<>();
-			classes.add(Classes.builder().nom("primary 2").build());
-			classes.add(Classes.builder().build());
+			classes.add(Classes.builder().nom("primary 2").anneeUniver(new Date(2022)).etudiants(new ArrayList<>()).niveaux(new Niveaux()).build());
+			classes.add(Classes.builder().nom("primary 3").build());
 			classes.add(Classes.builder().build());
 			classes.add(Classes.builder().build());
 
 			List<Etudiants> etudiants = new ArrayList<>();
-			etudiants.add(Etudiants.builder().build());
+			etudiants.add(Etudiants.builder().nom("ahmed").build());
 			etudiants.add(Etudiants.builder().build());
 			etudiants.add(Etudiants.builder().build());
 			etudiants.add(Etudiants.builder().build());
