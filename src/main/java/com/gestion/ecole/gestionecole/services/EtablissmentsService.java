@@ -3,37 +3,47 @@ package com.gestion.ecole.gestionecole.services;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gestion.ecole.gestionecole.entities.Etablissements;
+import com.gestion.ecole.gestionecole.dto.CenterDTO;
+import com.gestion.ecole.gestionecole.dto.EstablishmentDTO;
+import com.gestion.ecole.gestionecole.entities.Centres;
+import com.gestion.ecole.gestionecole.entities.establishments;
+import com.gestion.ecole.gestionecole.repositories.CentersRepository;
 import com.gestion.ecole.gestionecole.repositories.EtablissmentsRepository;
 import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
+
+import jakarta.transaction.Transactional;
 
 /***
  * @author hamza
  * 
  */
 @Service
-public class EtablissmentsService implements ServiceGeneratore<Etablissements> {
+@Transactional
+public class EtablissmentsService implements ServiceGeneratore<establishments> {
 	@Autowired
 	EtablissmentsRepository repo;
+	@Autowired
+	CentersRepository centerRepository;
 
 	@Override
-	public Etablissements saveOrUpdate(Etablissements etablissements) {
+	public establishments saveOrUpdate(establishments establishments) {
 
-		return repo.save(etablissements);
+		return repo.save(establishments);
 	}
 
 	@Override
-	public Optional<Etablissements> findById(Long id) {
+	public Optional<establishments> findById(Long id) {
 
 		return repo.findById(id);
 	}
 
 	@Override
-	public Optional<Etablissements> findByCriteria(HashMap<String, String> map) {
+	public Optional<establishments> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
@@ -53,9 +63,35 @@ public class EtablissmentsService implements ServiceGeneratore<Etablissements> {
 		return null;
 	}
 
-	@Override
-	public List<Etablissements> findAll() {
+	public List<EstablishmentDTO> findAllV2() {
 
+		List<establishments> establishments = repo.findAll();
+
+		return establishments.stream().map(this::convertToDto).collect(Collectors.toList());
+
+	}
+
+	private EstablishmentDTO convertToDto(establishments Etablissement) {
+		EstablishmentDTO dto = new EstablishmentDTO();
+		dto.setId(Etablissement.getId());
+		dto.setName(Etablissement.getName());
+		dto.setEmail(Etablissement.getEmail());
+		dto.setCentres(centerRepository.findAll().stream().map(this::convertCenterToDto).collect(Collectors.toList()));
+		return dto;
+	}
+
+	private CenterDTO convertCenterToDto(Centres center) {
+		CenterDTO dto = new CenterDTO();
+		dto.setId(center.getId());
+		dto.setEmail(center.getEmail());
+		dto.setAdresse(center.getAdresse());
+		dto.setNomcentre(center.getNomcentre());
+		return dto;
+	}
+
+	@Override
+	public List<establishments> findAll() {
+		// TODO Auto-generated method stub
 		return repo.findAll();
 	}
 }

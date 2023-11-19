@@ -16,7 +16,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
@@ -29,7 +28,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table
+
 public class Niveaux {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
@@ -43,7 +42,7 @@ public class Niveaux {
 	@JsonIgnore
 	private Filieres filiere;
 
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "niveaux")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "niveaux")
 	private List<Classes> classes;
 
 	@Temporal(TemporalType.TIMESTAMP)

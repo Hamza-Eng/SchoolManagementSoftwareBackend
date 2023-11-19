@@ -16,7 +16,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
@@ -29,7 +28,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table
 
 public class Centres {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,9 +49,9 @@ public class Centres {
 
 	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Etablissements etablissements;
-	
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "centre" )
+	private establishments etablissements;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "centre")
 	private List<Cycles> cycles;
 
 	@Temporal(TemporalType.TIMESTAMP)

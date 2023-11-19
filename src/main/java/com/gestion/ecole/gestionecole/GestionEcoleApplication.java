@@ -8,15 +8,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gestion.ecole.gestionecole.entities.Centres;
 import com.gestion.ecole.gestionecole.entities.Classes;
 import com.gestion.ecole.gestionecole.entities.Cycles;
 import com.gestion.ecole.gestionecole.entities.Employes;
-import com.gestion.ecole.gestionecole.entities.Etablissements;
 import com.gestion.ecole.gestionecole.entities.Etudiants;
 import com.gestion.ecole.gestionecole.entities.Filieres;
 import com.gestion.ecole.gestionecole.entities.Niveaux;
+import com.gestion.ecole.gestionecole.entities.establishments;
 import com.gestion.ecole.gestionecole.repositories.CentersRepository;
 import com.gestion.ecole.gestionecole.repositories.ClassesRepository;
 import com.gestion.ecole.gestionecole.repositories.CyclesRepository;
@@ -34,22 +33,21 @@ public class GestionEcoleApplication {
 
 	@Bean
 	CommandLineRunner start(EtudiantsRepository erepo, EtablissmentsRepository repo,
-							CentersRepository centersRepository, CyclesRepository cyclesRepository,
-							FilieresRepository filieresRepository, NiveauxRepository niveauxRepository,
-							ClassesRepository classesRepository, EtudiantsRepository etudiantsRepository) {
+			CentersRepository centersRepository, CyclesRepository cyclesRepository,
+			FilieresRepository filieresRepository, NiveauxRepository niveauxRepository,
+			ClassesRepository classesRepository, EtudiantsRepository etudiantsRepository) {
 
 		return arg -> {
-			
-			
-			Etablissements etablissements2 = new Etablissements();
 
-	        // Use ObjectMapper to convert the object to JSON
-	        ObjectMapper objectMapper = new ObjectMapper();
-	        String json = objectMapper.writeValueAsString(etablissements2);
+//			Etablissements etablissements2 = new Etablissements();
+//
+//	        // Use ObjectMapper to convert the object to JSON
+//	        ObjectMapper objectMapper = new ObjectMapper();
+//	        String json = objectMapper.writeValueAsString(etablissements2);
 
-	        // Print the JSON
-	        System.out.println(json);
-			
+			// Print the JSON
+//	        System.out.println(json);
+
 //			List<Etudiants> etudiants= new ArrayList<Etudiants>();
 //			etudiants.add(Etudiants.builder().build());
 //			etudiants.add(Etudiants.builder().build());
@@ -61,12 +59,11 @@ public class GestionEcoleApplication {
 			centres.add(Centres.builder().build());
 			centres.add(Centres.builder().build());
 
-			List<Etablissements> etablissements = new ArrayList<>();
-			etablissements.add(Etablissements.builder().banque("9876543218521498").adresse("azilal").build());
-			etablissements.add(Etablissements.builder().build());
-			etablissements.add(Etablissements.builder().build());
-			etablissements.add(Etablissements.builder().build());
-
+			List<establishments> etablissements = new ArrayList<>();
+			etablissements.add(establishments.builder().banque("9876543218521498").adresse("azilal").build());
+			etablissements.add(establishments.builder().build());
+			etablissements.add(establishments.builder().build());
+			etablissements.add(establishments.builder().build());
 
 			List<Employes> employes = new ArrayList<>();
 			employes.add(Employes.builder().build());
@@ -104,8 +101,6 @@ public class GestionEcoleApplication {
 			etudiants.add(Etudiants.builder().build());
 			etudiants.add(Etudiants.builder().build());
 
-
-
 			etablissements.forEach(element -> {
 
 				repo.save(element);
@@ -115,29 +110,26 @@ public class GestionEcoleApplication {
 				centersRepository.save(element);
 			});
 
-			cycles.forEach(elem->{
+			cycles.forEach(elem -> {
 				elem.setCentre(centres.get(0));
 				cyclesRepository.save(elem);
 			});
-			filieres.forEach(element->{
+			filieres.forEach(element -> {
 				element.setCycle(cycles.get(0));
 				filieresRepository.save(element);
 			});
-			niveaux.forEach(elem->{
+			niveaux.forEach(elem -> {
 				elem.setFiliere(filieres.get(1));
 				niveauxRepository.save(elem);
 			});
-			classes.forEach(elem->{
+			classes.forEach(elem -> {
 				elem.setNiveaux(niveaux.get(0));
 				classesRepository.save(elem);
 			});
-			 etudiants.forEach(elem->{
-				 elem.setClasse(classes.get(0));
-				 etudiantsRepository.save(elem);
-			 });
-
-
-			 
+			etudiants.forEach(elem -> {
+				elem.setClasse(classes.get(0));
+				etudiantsRepository.save(elem);
+			});
 
 //			Stream.of("azilal", "Beni MElla", "kech").forEach(name -> {
 //				Centres centres = new Centres();

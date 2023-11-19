@@ -17,7 +17,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
@@ -30,8 +29,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table
-public class Classes{
+
+public class Classes {
 	/**
 	 * 
 	 */
@@ -55,7 +54,7 @@ public class Classes{
 	@JsonIgnore
 	private Niveaux niveaux;
 
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "classe")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "classe")
 	private List<Etudiants> etudiants;
 
 	@Temporal(TemporalType.TIMESTAMP)

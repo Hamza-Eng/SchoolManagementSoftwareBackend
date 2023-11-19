@@ -5,13 +5,13 @@ import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
@@ -20,12 +20,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Etablissements {
+public class establishments {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +34,7 @@ public class Etablissements {
 
 	private String logo;
 
-	private String societe;
+	private String name;
 
 	private String adresse;
 
@@ -69,8 +69,8 @@ public class Etablissements {
 	private String image;
 
 	private long userId;
-	
-	@OneToMany(mappedBy = "etablissements",cascade = CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "etablissements", cascade = CascadeType.ALL)
 	private List<Centres> centres;
 
 	@Temporal(TemporalType.TIMESTAMP)

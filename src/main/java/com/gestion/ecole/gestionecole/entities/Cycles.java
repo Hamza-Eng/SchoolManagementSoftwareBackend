@@ -16,7 +16,6 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
-import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
@@ -29,7 +28,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table
+
 public class Cycles {
 	/**
 	 * 
@@ -49,7 +48,7 @@ public class Cycles {
 	@JsonIgnore
 	private Centres centre;
 
-	@OneToMany(cascade = CascadeType.ALL,mappedBy = "cycle",fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cycle", fetch = FetchType.EAGER)
 	private List<Filieres> filieres;
 
 	@Temporal(TemporalType.TIMESTAMP)

@@ -1,0 +1,8 @@
+com.gestion.ecole.gestionecole
+com.gestion.ecole.gestionecole.configuration
+com.gestion.ecole.gestionecole.controller
+com.gestion.ecole.gestionecole.entities
+com.gestion.ecole.gestionecole.enums
+com.gestion.ecole.gestionecole.repositories
+com.gestion.ecole.gestionecole.services
+com.gestion.ecole.gestionecole.utility
