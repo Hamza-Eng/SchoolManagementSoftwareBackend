@@ -15,12 +15,6 @@ public class EstablishmentDTO {
 	private String email;
 	private String ice;
 	private List<CenterDTO> centres;
-//	public EstablishmentDTO(Etablissements etablissement) {
-////		this.centres=etablissement.getCentres();
-//		this.name=etablissement.getName();
-//		this.ice=etablissement.getIce();
-//		this.email=etablissement.getEmail();
-//		this.id=etablissement.getId();
-//	}
+
 
 }

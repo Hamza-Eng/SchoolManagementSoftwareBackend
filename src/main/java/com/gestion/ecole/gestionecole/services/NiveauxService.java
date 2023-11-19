@@ -3,11 +3,16 @@ package com.gestion.ecole.gestionecole.services;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gestion.ecole.gestionecole.dto.ClasseDTO;
+import com.gestion.ecole.gestionecole.dto.NiveauxDTO;
+import com.gestion.ecole.gestionecole.entities.Classes;
 import com.gestion.ecole.gestionecole.entities.Niveaux;
+import com.gestion.ecole.gestionecole.repositories.ClassesRepository;
 import com.gestion.ecole.gestionecole.repositories.NiveauxRepository;
 import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 
@@ -15,6 +20,9 @@ import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 public class NiveauxService implements ServiceGeneratore<Niveaux> {
 	@Autowired
 	NiveauxRepository repo;
+
+	@Autowired
+	ClassesRepository crepo;
 
 	@Override
 	public Niveaux saveOrUpdate(Niveaux niveaux) {
@@ -52,4 +60,24 @@ public class NiveauxService implements ServiceGeneratore<Niveaux> {
 	public List<Niveaux> findAll() {
 		return repo.findAll();
 	}
+
+	public List<NiveauxDTO> findAllV2() {
+		return repo.findAll().stream().map(this::convertNiveauToDto).collect(Collectors.toList());
+	}
+
+	private NiveauxDTO convertNiveauToDto(Niveaux niveaux) {
+		NiveauxDTO dto = new NiveauxDTO();
+		 dto.setList(crepo.findByNiveaux(niveaux).stream().map(this::convertClassToDto).collect(Collectors.toList()));
+		 return dto;
+
+	}
+
+	private ClasseDTO convertClassToDto(Classes classe) {
+		ClasseDTO dto=new ClasseDTO();
+		dto.setId(classe.getId());
+		dto.setNom(classe.getNom());
+		dto.setNumero(classe.getNumero());
+		return dto;
+	}
+
 }

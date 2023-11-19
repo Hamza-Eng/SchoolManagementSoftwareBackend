@@ -7,14 +7,17 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.gestion.ecole.gestionecole.dto.ClasseDTO;
 import com.gestion.ecole.gestionecole.entities.Classes;
 import com.gestion.ecole.gestionecole.repositories.ClassesRepository;
+import com.gestion.ecole.gestionecole.repositories.NiveauxRepository;
 import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 
 @Service
 public class ClassesService implements ServiceGeneratore<Classes> {
 	@Autowired
 	ClassesRepository repo;
+	
 
 	@Override
 	public Classes saveOrUpdate(Classes classes) {
@@ -53,4 +56,6 @@ public class ClassesService implements ServiceGeneratore<Classes> {
 	public List<Classes> findAll() {
 		return repo.findAll();
 	}
+	
+	
 }

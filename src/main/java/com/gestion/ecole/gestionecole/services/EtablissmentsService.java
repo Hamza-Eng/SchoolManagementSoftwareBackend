@@ -76,7 +76,7 @@ public class EtablissmentsService implements ServiceGeneratore<establishments> {
 		dto.setId(Etablissement.getId());
 		dto.setName(Etablissement.getName());
 		dto.setEmail(Etablissement.getEmail());
-		dto.setCentres(centerRepository.findAll().stream().map(this::convertCenterToDto).collect(Collectors.toList()));
+		dto.setCentres(centerRepository.findByEtablissements(Etablissement).stream().map(this::convertCenterToDto).collect(Collectors.toList()));
 		return dto;
 	}
 
