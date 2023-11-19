@@ -58,9 +58,11 @@ public class Classes {
 	private List<Etudiants> etudiants;
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date createdAt;
 
 	@Temporal(TemporalType.TIMESTAMP)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 	private Date updatedAt;
 	// constructors, getters, and setters
 

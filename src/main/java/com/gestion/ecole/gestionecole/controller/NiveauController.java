@@ -17,7 +17,7 @@ import com.gestion.ecole.gestionecole.entities.Niveaux;
 import com.gestion.ecole.gestionecole.services.NiveauxService;
 import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/niveau")
 public class NiveauController implements ControllerGenerator<Niveaux> {

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,55 +20,55 @@ import com.gestion.ecole.gestionecole.entities.Classes;
 import com.gestion.ecole.gestionecole.services.ClassesService;
 import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/class")
 
-public class ClassController implements ControllerGenerator<Classes> {
+public class ClassController  {
 
 	@Autowired
 	ClassesService service;
 
-	@Override
+
 	@PostMapping("/saveOrUpdate")
 	public Classes saveOrUpdate(@RequestBody Classes t) {
 		// TODO Auto-generated method stub
 		return service.saveOrUpdate(t);
 	}
 
-	@Override
+
 	@GetMapping("/findById/{id}")
-	public Optional<Classes> findById(@PathVariable(name = "id") Long id) {
-		// TODO Auto-generated method stub
-		return service.findById(id);
+	public ResponseEntity<Optional<Classes>> findById(@PathVariable(name = "id") Long id) {
+
+		return new ResponseEntity<>(service.findById(id), HttpStatus.OK);
 	}
 
-	@Override
+
 	@GetMapping("/findByCriteria")
 	public Optional<Classes> findByCriteria(HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
-	@Override
+
 	@DeleteMapping("/delete/{id}")
 	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
-	@Override
+
 	@DeleteMapping("/deleteAll")
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return service.deleteAll();
 	}
 
-	@Override
+
 	@GetMapping("/findAll")
-	public List<Classes> findAll() {
-		// TODO Auto-generated method stub
-		return service.findAll();
+	public ResponseEntity<List<Classes>> findAll() {
+		List<Classes> classes = service.findAll();
+		return new ResponseEntity<>(classes, HttpStatus.OK);
 	}
 
 }
