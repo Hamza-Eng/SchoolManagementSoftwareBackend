@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gestion.ecole.gestionecole.dto.CenterDTO;
 import com.gestion.ecole.gestionecole.entities.Centres;
 import com.gestion.ecole.gestionecole.services.CenterService;
 import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
@@ -60,10 +61,15 @@ public class CenterController implements ControllerGenerator<Centres> {
 	}
 
 	@Override
-	@GetMapping("/findAll")
+//	@GetMapping("/findAll")
 	public List<Centres> findAll() {
 
 		return service.findAll();
 	}
 
+	@GetMapping("/findAll")
+	public List<CenterDTO> findAllV2() {
+
+		return service.findAllV2();
+	}
 }
