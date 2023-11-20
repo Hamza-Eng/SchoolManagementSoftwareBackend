@@ -66,17 +66,16 @@ public class NiveauxService implements ServiceGeneratore<Niveaux> {
 	}
 
 	private NiveauxDTO convertNiveauToDto(Niveaux niveaux) {
-		NiveauxDTO dto = new NiveauxDTO();
-		 dto.setList(crepo.findByNiveaux(niveaux).stream().map(this::convertClassToDto).collect(Collectors.toList()));
-		 return dto;
+		NiveauxDTO dto = new NiveauxDTO(niveaux);
+
+		dto.setClasses(crepo.findByNiveaux(niveaux).stream().map(this::convertClassToDto).collect(Collectors.toList()));
+		return dto;
 
 	}
 
 	private ClasseDTO convertClassToDto(Classes classe) {
-		ClasseDTO dto=new ClasseDTO();
-		dto.setId(classe.getId());
-		dto.setNom(classe.getNom());
-		dto.setNumero(classe.getNumero());
+		ClasseDTO dto = new ClasseDTO(classe);
+		dto.setNiveauxId(classe.getNiveaux().getId());
 		return dto;
 	}
 

@@ -72,22 +72,15 @@ public class EtablissmentsService implements ServiceGeneratore<establishments> {
 	}
 
 	private EstablishmentDTO convertToDto(establishments Etablissement) {
-		EstablishmentDTO dto = new EstablishmentDTO();
-		dto.setId(Etablissement.getId());
-		dto.setName(Etablissement.getName());
-		dto.setEmail(Etablissement.getEmail());
-		dto.setCentres(centerRepository.findByEtablissements(Etablissement).stream().map(this::convertCenterToDto).collect(Collectors.toList()));
+		EstablishmentDTO dto = new EstablishmentDTO(Etablissement);
+		dto.setCentres(centerRepository.findByEtablissements(Etablissement).stream().map(this::convertCenterToDto)
+				.collect(Collectors.toList()));
 		return dto;
 	}
 
 	private CenterDTO convertCenterToDto(Centres center) {
-		CenterDTO dto = new CenterDTO();
-		dto.setId(center.getId());
-		dto.setEmail(center.getEmail());
-		dto.setAdresse(center.getAdresse());
-		dto.setNomcentre(center.getNomcentre());				
-		dto.setEstablismentId(center.getEtablissements().getId());				
-		dto.setEstablismentEmail(center.getEtablissements().getBanque());				
+		CenterDTO dto = new CenterDTO(center);
+		dto.setEtablissementId(center.getEtablissements().getId());
 		return dto;
 	}
 

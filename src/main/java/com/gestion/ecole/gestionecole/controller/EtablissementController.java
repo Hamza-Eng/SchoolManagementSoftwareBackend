@@ -31,6 +31,7 @@ public class EtablissementController implements ControllerGenerator<establishmen
 	@PostMapping("/saveorupdate")
 	public establishments saveOrUpdate(@RequestBody establishments t) {
 		// TODO Auto-generated method stub
+		System.out.println("=========§§§§§§§========>< " + t.toString());
 		return service.saveOrUpdate(t);
 	}
 

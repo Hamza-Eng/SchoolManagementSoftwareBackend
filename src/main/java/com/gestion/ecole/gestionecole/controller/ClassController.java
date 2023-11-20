@@ -18,17 +18,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gestion.ecole.gestionecole.entities.Classes;
 import com.gestion.ecole.gestionecole.services.ClassesService;
-import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/class")
 
-public class ClassController  {
+public class ClassController {
 
 	@Autowired
 	ClassesService service;
-
 
 	@PostMapping("/saveOrUpdate")
 	public Classes saveOrUpdate(@RequestBody Classes t) {
@@ -36,13 +34,11 @@ public class ClassController  {
 		return service.saveOrUpdate(t);
 	}
 
-
 	@GetMapping("/findById/{id}")
 	public ResponseEntity<Optional<Classes>> findById(@PathVariable(name = "id") Long id) {
 
 		return new ResponseEntity<>(service.findById(id), HttpStatus.OK);
 	}
-
 
 	@GetMapping("/findByCriteria")
 	public Optional<Classes> findByCriteria(HashMap<String, String> map) {
@@ -50,20 +46,17 @@ public class ClassController  {
 		return Optional.empty();
 	}
 
-
 	@DeleteMapping("/delete/{id}")
 	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
-
 	@DeleteMapping("/deleteAll")
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return service.deleteAll();
 	}
-
 
 	@GetMapping("/findAll")
 	public ResponseEntity<List<Classes>> findAll() {

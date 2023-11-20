@@ -95,7 +95,8 @@ public class GestionEcoleApplication {
 			niveaux.add(Niveaux.builder().build());
 
 			List<Classes> classes = new ArrayList<>();
-			classes.add(Classes.builder().nom("primary 2").anneeUniver(new Date(2022)).etudiants(new ArrayList<>()).niveaux(new Niveaux()).build());
+			classes.add(Classes.builder().nom("primary 2").anneeUniver(new Date(2022)).etudiants(new ArrayList<>())
+					.niveaux(new Niveaux()).build());
 			classes.add(Classes.builder().nom("primary 3").build());
 			classes.add(Classes.builder().build());
 			classes.add(Classes.builder().build());
