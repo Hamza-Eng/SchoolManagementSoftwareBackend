@@ -15,7 +15,13 @@ public class CenterDTO {
 		
 		center.setAdresse(dto.getAdresse());
 		center.setContent(dto.getContent());
-		
+		center.setId(dto.getId());
+		center.setEmail(dto.getEmail());
+		center.setCreatedAt(dto.getCreatedAt());
+		center.setNomcentre(dto.getNomcentre());
+		center.setTel(dto.getTel());
+		center.setUpdatedAt(dto.getUpdatedAt());
+
 		return center;
 
 	}

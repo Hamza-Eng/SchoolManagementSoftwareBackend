@@ -9,6 +9,16 @@ import lombok.Data;
 
 @Data
 public class ClasseDTO {
+	public Classes dtoentity(ClasseDTO dto){
+		Classes classes = new Classes();
+		classes.setId(dto.getId());
+		classes.setNom(dto.getNom());
+		classes.setAnneeUniver(dto.getAnneeUniver());
+		classes.setNumero(dto.getNumero());
+		classes.setCreatedAt(dto.getCreatedAt());
+		classes.setUpdatedAt(dto.getUpdatedAt());
+		return  classes;
+	}
 
 	public ClasseDTO(Classes classe) {
 		super();

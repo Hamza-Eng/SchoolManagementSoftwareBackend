@@ -9,6 +9,15 @@ import lombok.Data;
 
 @Data
 public class CycleDTO {
+	public Cycles dtotorntity(CycleDTO dto){
+		Cycles cycle = new Cycles();
+		cycle.setId(dto.getId());
+		cycle.setName(dto.getName());
+		cycle.setCreatedAt(dto.getCreatedAt());
+		cycle.setUpdatedAt(dto.getUpdatedAt());
+
+		return  cycle;
+	}
 
 	public CycleDTO(Cycles cycles) {
 		super();

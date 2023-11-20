@@ -8,6 +8,35 @@ import lombok.Data;
 
 @Data
 public class EmployeeDTO {
+	public Employes toEntity(EmployeeDTO dto){
+		Employes employes = new Employes();
+		employes.setId(dto.getId());
+		employes.setCv(dto.getCv());
+		employes.setEmail(dto.getEmail());
+		employes.setCentreId(dto.getCentreId());
+		employes.setAdresse(dto.getAdresse());
+		employes.setCin(dto.getCin());
+		employes.setDiplome(dto.getDiplome());
+		employes.setAnneeunvId(dto.getAnneeunvId());
+		employes.setDatenaissance(dto.getDatenaissance());
+		employes.setExperience(dto.getExperience());
+		employes.setNiveau(dto.getNiveau());
+		employes.setVille(dto.getVille());
+		employes.setPhoto(dto.getPhoto());
+		employes.setNom(dto.getNom());
+		employes.setPrenom(dto.getPrenom());
+		employes.setSexe(dto.getSexe());
+		employes.setSalaire(dto.getSalaire());
+		employes.setStatus(dto.getStatus());
+		employes.setTel(dto.getTel());
+		employes.setTypecontrat(dto.getTypecontrat());
+		employes.setUserId(dto.getUserId());
+		employes.setCreatedAt(dto.getCreatedAt());
+		employes.setUpdatedAt(dto.getUpdatedAt());
+		employes.setPortable(dto.getPortable());
+
+		return  employes;
+	}
 
 	public EmployeeDTO(Employes employes) {
 		super();
