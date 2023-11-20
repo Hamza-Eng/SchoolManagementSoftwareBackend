@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gestion.ecole.gestionecole.dto.NiveauxDTO;
 import com.gestion.ecole.gestionecole.entities.Niveaux;
 import com.gestion.ecole.gestionecole.services.NiveauxService;
 import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
@@ -60,11 +61,16 @@ public class NiveauController implements ControllerGenerator<Niveaux> {
 		return service.deleteAll();
 	}
 
-	@GetMapping("/findall")
 	@Override
 	public List<Niveaux> findAll() {
 		// TODO Auto-generated method stub
 		return service.findAll();
+	}
+
+	@GetMapping("/findAll")
+	public List<NiveauxDTO> findAllV2() {
+		// TODO Auto-generated method stub
+		return service.findAllV2();
 	}
 
 }

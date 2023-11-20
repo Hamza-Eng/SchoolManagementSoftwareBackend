@@ -10,5 +10,6 @@ public class ClasseDTO {
 	private String nom;
 
 	private String numero;
+
 	
 }

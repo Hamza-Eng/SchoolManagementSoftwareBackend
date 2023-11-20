@@ -13,4 +13,8 @@ public class CenterDTO {
 	private String email;
 
 	private String tel;
+	
+	private Long establismentId;
+	
+	private String establismentEmail;
 }

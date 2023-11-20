@@ -47,7 +47,7 @@ public class Centres {
 	@Temporal(TemporalType.DATE)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
 
-	@JsonIgnore
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private establishments etablissements;
 

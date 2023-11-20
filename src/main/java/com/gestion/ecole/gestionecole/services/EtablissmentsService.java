@@ -85,7 +85,9 @@ public class EtablissmentsService implements ServiceGeneratore<establishments> {
 		dto.setId(center.getId());
 		dto.setEmail(center.getEmail());
 		dto.setAdresse(center.getAdresse());
-		dto.setNomcentre(center.getNomcentre());
+		dto.setNomcentre(center.getNomcentre());				
+		dto.setEstablismentId(center.getEtablissements().getId());				
+		dto.setEstablismentEmail(center.getEtablissements().getBanque());				
 		return dto;
 	}
 
