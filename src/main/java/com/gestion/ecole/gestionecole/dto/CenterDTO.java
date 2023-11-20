@@ -9,6 +9,16 @@ import lombok.Data;
 
 @Data
 public class CenterDTO {
+	public Centres convertDtoToEntity(CenterDTO dto) {
+		
+		Centres center=new Centres();
+		
+		center.setAdresse(dto.getAdresse());
+		center.setContent(dto.getContent());
+		
+		return center;
+
+	}
 	public CenterDTO(Centres centre) {
 		super();
 		this.id = centre.getId();
