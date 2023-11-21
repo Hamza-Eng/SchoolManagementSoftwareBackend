@@ -46,7 +46,7 @@ public class Cycles {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "centre_id")
 	@JsonIgnore
-	private Centres centre;
+	private Centers centre;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cycle", fetch = FetchType.EAGER)
 	private List<Filieres> filieres;

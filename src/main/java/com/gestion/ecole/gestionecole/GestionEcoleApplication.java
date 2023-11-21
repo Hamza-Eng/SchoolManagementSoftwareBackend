@@ -13,7 +13,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
-import com.gestion.ecole.gestionecole.entities.Centres;
+import com.gestion.ecole.gestionecole.entities.Centers;
 import com.gestion.ecole.gestionecole.entities.Classes;
 import com.gestion.ecole.gestionecole.entities.Cycles;
 import com.gestion.ecole.gestionecole.entities.Employes;
@@ -58,11 +58,11 @@ public class GestionEcoleApplication {
 //			etudiants.add(Etudiants.builder().build());
 //			etudiants.add(Etudiants.builder().build());
 
-			List<Centres> centres = new ArrayList<>();
-			centres.add(Centres.builder().build());
-			centres.add(Centres.builder().build());
-			centres.add(Centres.builder().build());
-			centres.add(Centres.builder().build());
+			List<Centers> centres = new ArrayList<>();
+			centres.add(Centers.builder().build());
+			centres.add(Centers.builder().build());
+			centres.add(Centers.builder().build());
+			centres.add(Centers.builder().build());
 
 			List<establishments> etablissements = new ArrayList<>();
 			etablissements.add(establishments.builder().banque("9876543218521498").adresse("azilal").build());

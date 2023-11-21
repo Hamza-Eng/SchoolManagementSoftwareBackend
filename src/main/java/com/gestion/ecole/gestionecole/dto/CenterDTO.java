@@ -3,15 +3,15 @@ package com.gestion.ecole.gestionecole.dto;
 import java.util.Date;
 import java.util.List;
 
-import com.gestion.ecole.gestionecole.entities.Centres;
+import com.gestion.ecole.gestionecole.entities.Centers;
 
 import lombok.Data;
 
 @Data
 public class CenterDTO {
-	public Centres convertDtoToEntity(CenterDTO dto) {
+	public Centers convertDtoToEntity(CenterDTO dto) {
 		
-		Centres center=new Centres();
+		Centers center=new Centers();
 		
 		center.setAdresse(dto.getAdresse());
 		center.setContent(dto.getContent());
@@ -25,7 +25,7 @@ public class CenterDTO {
 		return center;
 
 	}
-	public CenterDTO(Centres centre) {
+	public CenterDTO(Centers centre) {
 		super();
 		this.id = centre.getId();
 		this.nomcentre = centre.getNomcentre();

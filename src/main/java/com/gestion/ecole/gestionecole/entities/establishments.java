@@ -72,7 +72,7 @@ public class establishments {
 	private long userId;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "etablissements", cascade = CascadeType.ALL)
-	private List<Centres> centres;
+	private List<Centers> centres;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(updatable = false)

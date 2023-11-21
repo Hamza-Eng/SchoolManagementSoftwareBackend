@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.gestion.ecole.gestionecole.dto.CenterDTO;
 import com.gestion.ecole.gestionecole.dto.CycleDTO;
-import com.gestion.ecole.gestionecole.entities.Centres;
+import com.gestion.ecole.gestionecole.entities.Centers;
 import com.gestion.ecole.gestionecole.entities.Cycles;
 import com.gestion.ecole.gestionecole.repositories.CentersRepository;
 import com.gestion.ecole.gestionecole.repositories.CyclesRepository;
@@ -22,7 +22,7 @@ import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
  * 
  */
 @Service
-public class CenterService implements ServiceGeneratore<Centres> {
+public class CenterService implements ServiceGeneratore<Centers> {
 	@Autowired
 	CentersRepository repo;
 	@Autowired
@@ -30,17 +30,17 @@ public class CenterService implements ServiceGeneratore<Centres> {
 	@Autowired
 	CyclesRepository crepo;
 	@Override
-	public Centres saveOrUpdate(Centres centre) {
+	public Centers saveOrUpdate(Centers centre) {
 		return repo.save(centre);
 	}
 
 	@Override
-	public Optional<Centres> findById(Long id) {
+	public Optional<Centers> findById(Long id) {
 		return repo.findById(id);
 	}
 
 	@Override
-	public Optional<Centres> findByCriteria(HashMap<String, String> map) {
+	public Optional<Centers> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
@@ -56,7 +56,7 @@ public class CenterService implements ServiceGeneratore<Centres> {
 	}
 
 	@Override
-	public List<Centres> findAll() {
+	public List<Centers> findAll() {
 		return repo.findAll();
 	}
 
@@ -65,7 +65,7 @@ public class CenterService implements ServiceGeneratore<Centres> {
 		
 	}
 
-	private CenterDTO convertCenterToDto(Centres centre) {
+	private CenterDTO convertCenterToDto(Centers centre) {
 		CenterDTO dto = new CenterDTO(centre);
 		dto.setCycles(crepo.findByCentre(centre).stream().map(this::convertCycleToDto).collect(Collectors.toList()));
 		return dto;

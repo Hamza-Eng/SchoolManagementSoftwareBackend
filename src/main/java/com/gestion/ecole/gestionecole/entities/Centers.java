@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 
-public class Centres {
+public class Centers {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 
