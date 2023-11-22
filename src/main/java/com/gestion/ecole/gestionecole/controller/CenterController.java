@@ -22,45 +22,45 @@ import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 @CrossOrigin
 @RestController
 @RequestMapping("/center")
-public class CenterController implements ControllerGenerator<Centers> {
+public class CenterController {
 	@Autowired
 	CenterService service;
 
-	@Override
+	 
 	@PostMapping("/add")
 	public Centers saveOrUpdate(@RequestBody Centers center) {
 		// TODO Auto-generated method stub
 		return service.saveOrUpdate(center);
 	}
 
-	@Override
+	 
 	@GetMapping("/findById/{id}")
 	public Optional<Centers> findById(@PathVariable(name = "id") Long id) {
 
 		return service.findById(id);
 	}
 
-	@Override
+	 
 	@GetMapping("/findByCriteria")
 	public Optional<Centers> findByCriteria(@RequestBody HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
-	@Override
+	 
 	@DeleteMapping("/delete/{id}")
 	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
-	@Override
+	 
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
+	 
 //	@GetMapping("/findAll")
 	public List<Centers> findAll() {
 

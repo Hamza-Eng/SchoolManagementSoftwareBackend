@@ -12,28 +12,28 @@ import com.gestion.ecole.gestionecole.repositories.EtudiantsRepository;
 import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 
 @Service
-public class EtudiantService implements ServiceGeneratore<Etudiants> {
+public class EtudiantService {
 	@Autowired
 	EtudiantsRepository repo;
 
-	@Override
+	 
 	public Etudiants saveOrUpdate(Etudiants etudiants) {
 
 		return repo.save(etudiants);
 	}
 
-	@Override
+	 
 	public Optional<Etudiants> findById(Long id) {
 
 		return repo.findById(id);
 	}
 
-	@Override
+	 
 	public Optional<Etudiants> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
-	@Override
+	 
 	public Boolean delete(Long id) {
 
 		try {
@@ -45,12 +45,12 @@ public class EtudiantService implements ServiceGeneratore<Etudiants> {
 		}
 	}
 
-	@Override
+	 
 	public Boolean deleteAll() {
 		return null;
 	}
 
-	@Override
+	 
 	public List<Etudiants> findAll() {
 
 		return repo.findAll();

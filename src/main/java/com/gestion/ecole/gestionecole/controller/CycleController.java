@@ -22,46 +22,46 @@ import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 @RestController
 @RequestMapping("/cycle")
 
-public class CycleController implements ControllerGenerator<Cycles> {
+public class CycleController  {
 	@Autowired
 	CyclesService service;
 
-	@Override
+	 
 	@PostMapping("/saveOrUpdate")
 	public Cycles saveOrUpdate(@RequestBody Cycles t) {
 		// TODO Auto-generated method stub
 		return service.saveOrUpdate(t);
 	}
 
-	@Override
+	 
 	@GetMapping("/findById/{id}")
 	public Optional<Cycles> findById(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.findById(id);
 	}
 
-	@Override
+	 
 	@GetMapping("/findByCriteria")
 	public Optional<Cycles> findByCriteria(HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
-	@Override
+	 
 	@DeleteMapping("/delete/{id}")
 	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
-	@Override
+	 
 	@DeleteMapping("/deleteAll")
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return service.deleteAll();
 	}
 
-	@Override
+	 
 	@GetMapping("/findAll")
 	public List<Cycles> findAll() {
 		// TODO Auto-generated method stub

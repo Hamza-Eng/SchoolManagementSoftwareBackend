@@ -6,9 +6,13 @@ import java.util.List;
 
 import com.gestion.ecole.gestionecole.entities.establishments;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class EstablishmentDTO {
 
 	public EstablishmentDTO(establishments establishment) {

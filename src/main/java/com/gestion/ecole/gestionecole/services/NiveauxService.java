@@ -17,30 +17,30 @@ import com.gestion.ecole.gestionecole.repositories.NiveauxRepository;
 import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 
 @Service
-public class NiveauxService implements ServiceGeneratore<Niveaux> {
+public class NiveauxService {
 	@Autowired
 	NiveauxRepository repo;
 
 	@Autowired
 	ClassesRepository crepo;
 
-	@Override
+	 
 	public Niveaux saveOrUpdate(Niveaux niveaux) {
 		return repo.save(niveaux);
 	}
 
-	@Override
+	 
 	public Optional<Niveaux> findById(Long id) {
 
 		return repo.findById(id);
 	}
 
-	@Override
+	 
 	public Optional<Niveaux> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
-	@Override
+	 
 	public Boolean delete(Long id) {
 		try {
 			repo.deleteById(id);
@@ -51,12 +51,12 @@ public class NiveauxService implements ServiceGeneratore<Niveaux> {
 		}
 	}
 
-	@Override
+	 
 	public Boolean deleteAll() {
 		return null;
 	}
 
-	@Override
+	 
 	public List<Niveaux> findAll() {
 		return repo.findAll();
 	}

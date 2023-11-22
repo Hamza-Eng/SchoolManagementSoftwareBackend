@@ -16,27 +16,27 @@ import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
  * 
  */
 @Service
-public class FilieresService implements ServiceGeneratore<Filieres> {
+public class FilieresService  {
 	@Autowired
 	FilieresRepository repo;
 
-	@Override
+	 
 	public Filieres saveOrUpdate(Filieres filieres) {
 
 		return repo.save(filieres);
 	}
 
-	@Override
+	 
 	public Optional<Filieres> findById(Long id) {
 		return repo.findById(id);
 	}
 
-	@Override
+	 
 	public Optional<Filieres> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
-	@Override
+	 
 	public Boolean delete(Long id) {
 
 		try {
@@ -48,12 +48,12 @@ public class FilieresService implements ServiceGeneratore<Filieres> {
 		}
 	}
 
-	@Override
+	 
 	public Boolean deleteAll() {
 		return null;
 	}
 
-	@Override
+	 
 	public List<Filieres> findAll() {
 		return repo.findAll();
 	}

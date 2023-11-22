@@ -6,8 +6,10 @@ import com.gestion.ecole.gestionecole.entities.Classes;
 import com.gestion.ecole.gestionecole.entities.Etudiants;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor	
 public class EtudiantDTO {
 
 	public EtudiantDTO(Etudiants etudiant) {

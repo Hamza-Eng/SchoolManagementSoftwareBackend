@@ -5,9 +5,13 @@ import java.util.List;
 
 import com.gestion.ecole.gestionecole.entities.Centers;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CenterDTO {
 	public Centers convertDtoToEntity(CenterDTO dto) {
 		

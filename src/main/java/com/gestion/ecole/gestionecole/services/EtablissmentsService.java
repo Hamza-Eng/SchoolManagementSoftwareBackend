@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,24 +31,20 @@ public class EtablissmentsService {
 	@Autowired
 	CentersRepository centerRepository;
 
-	 
 	public establishments saveOrUpdate(establishments establishments) {
 
-		return  repo.save(establishments);
+		return repo.save(establishments);
 	}
 
-	 
 	public Optional<establishments> findById(Long id) {
 
 		return repo.findById(id);
 	}
 
-	 
 	public Optional<establishments> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
-	 
 	public Boolean delete(Long id) {
 		try {
 			repo.deleteById(id);
@@ -58,16 +55,13 @@ public class EtablissmentsService {
 		}
 	}
 
-	 
 	public Boolean deleteAll() {
 		return null;
 	}
 
 	public List<EstablishmentDTO> findAllV2() {
 
-		List<establishments> establishments = repo.findAll();
-
-		return establishments.stream().map(this::convertToDto).collect(Collectors.toList());
+		return repo.findAll().stream().map(this::convertToDto).collect(Collectors.toList());
 
 	}
 
@@ -84,7 +78,6 @@ public class EtablissmentsService {
 		return dto;
 	}
 
-	 
 	public List<establishments> findAll() {
 		// TODO Auto-generated method stub
 		return repo.findAll();

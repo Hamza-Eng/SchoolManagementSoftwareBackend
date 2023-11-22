@@ -22,47 +22,47 @@ import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 @RestController
 @RequestMapping("/etudiant")
 
-public class EtudiantController implements ControllerGenerator<Etudiants> {
+public class EtudiantController  {
 
 	@Autowired
 	EtudiantService service;
 
-	@Override
+	 
 	@PostMapping("/saveOrUpdate")
 	public Etudiants saveOrUpdate(@RequestBody Etudiants t) {
 		// TODO Auto-generated method stub
 		return service.saveOrUpdate(t);
 	}
 
-	@Override
+	 
 	@GetMapping("/findById/{id}")
 	public Optional<Etudiants> findById(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.findById(id);
 	}
 
-	@Override
+	 
 	@GetMapping("/findByCriteria")
 	public Optional<Etudiants> findByCriteria(HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
-	@Override
+	 
 	@DeleteMapping("/delete/{id}")
 	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
-	@Override
+	 
 	@DeleteMapping("/deleteAll")
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return service.deleteAll();
 	}
 
-	@Override
+	 
 	@GetMapping("/findAll")
 	public List<Etudiants> findAll() {
 		// TODO Auto-generated method stub

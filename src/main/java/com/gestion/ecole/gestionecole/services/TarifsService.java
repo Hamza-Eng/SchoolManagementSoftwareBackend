@@ -12,26 +12,26 @@ import com.gestion.ecole.gestionecole.repositories.TarifsRepository;
 import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 
 @Service
-public class TarifsService implements ServiceGeneratore<Tarifs> {
+public class TarifsService {
 	@Autowired
 	TarifsRepository repo;
 
-	@Override
+	 
 	public Tarifs saveOrUpdate(Tarifs tarifs) {
 		return repo.save(tarifs);
 	}
 
-	@Override
+	 
 	public Optional<Tarifs> findById(Long id) {
 		return repo.findById(id);
 	}
 
-	@Override
+	 
 	public Optional<Tarifs> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
-	@Override
+	 
 	public Boolean delete(Long id) {
 		try {
 			repo.deleteById(id);
@@ -42,12 +42,12 @@ public class TarifsService implements ServiceGeneratore<Tarifs> {
 		}
 	}
 
-	@Override
+	 
 	public Boolean deleteAll() {
 		return null;
 	}
 
-	@Override
+	 
 	public List<Tarifs> findAll() {
 		return repo.findAll();
 	}

@@ -21,47 +21,47 @@ import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/niveau")
-public class NiveauController implements ControllerGenerator<Niveaux> {
+public class NiveauController  {
 
 	@Autowired
 	NiveauxService service;
 
 	@PostMapping("/saveorupdate")
-	@Override
+	 
 	public Niveaux saveOrUpdate(@RequestBody Niveaux t) {
 		// TODO Auto-generated method stub
 		return service.saveOrUpdate(t);
 	}
 
 	@GetMapping("/findbyid{id} ")
-	@Override
+	 
 	public Optional<Niveaux> findById(Long id) {
 		// TODO Auto-generated method stub
 		return service.findById(id);
 	}
 
 	@GetMapping("/findbycriteria")
-	@Override
+	 
 	public Optional<Niveaux> findByCriteria(HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
 	@DeleteMapping("/delete{id}")
-	@Override
+	 
 	public Boolean delete(Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
 	@DeleteMapping("/deleteall")
-	@Override
+	 
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return service.deleteAll();
 	}
 
-	@Override
+	 
 	public List<Niveaux> findAll() {
 		// TODO Auto-generated method stub
 		return service.findAll();

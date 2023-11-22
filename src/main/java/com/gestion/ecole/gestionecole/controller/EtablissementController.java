@@ -22,12 +22,12 @@ import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 @RestController
 @RequestMapping("/etablissement")
 @CrossOrigin
-public class EtablissementController implements ControllerGenerator<establishments> {
+public class EtablissementController {
 
 	@Autowired
 	EtablissmentsService service;
 
-	@Override
+	 
 	@PostMapping("/saveorupdate")
 	public establishments saveOrUpdate(@RequestBody establishments t) {
 		// TODO Auto-generated method stub
@@ -35,35 +35,35 @@ public class EtablissementController implements ControllerGenerator<establishmen
 		return service.saveOrUpdate(t);
 	}
 
-	@Override
+	 
 	@GetMapping("/findById/{id}")
 	public Optional<establishments> findById(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.findById(id);
 	}
 
-	@Override
+	 
 	@GetMapping("/findByCriteria")
 	public Optional<establishments> findByCriteria(@RequestBody HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
-	@Override
+	 
 	@DeleteMapping("/delete/{id}")
 	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
-	@Override
+	 
 	@DeleteMapping("/deleteAll")
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return service.deleteAll();
 	}
 
-	@Override
+	 
 //	@GetMapping("/findAll")
 	public List<establishments> findAll() {
 		return null;

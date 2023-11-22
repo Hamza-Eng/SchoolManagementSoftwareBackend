@@ -22,40 +22,40 @@ import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
  * 
  */
 @Service
-public class CenterService implements ServiceGeneratore<Centers> {
+public class CenterService {
 	@Autowired
 	CentersRepository repo;
 	@Autowired
 	EtablissmentsRepository erepo;
 	@Autowired
 	CyclesRepository crepo;
-	@Override
+	 
 	public Centers saveOrUpdate(Centers centre) {
 		return repo.save(centre);
 	}
 
-	@Override
+	 
 	public Optional<Centers> findById(Long id) {
 		return repo.findById(id);
 	}
 
-	@Override
+	 
 	public Optional<Centers> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
-	@Override
+	 
 	public Boolean delete(Long id) {
 		return repo.existsById(id);
 	}
 
-	@Override
+	 
 	public Boolean deleteAll() {
 		return null;
 
 	}
 
-	@Override
+	 
 	public List<Centers> findAll() {
 		return repo.findAll();
 	}
