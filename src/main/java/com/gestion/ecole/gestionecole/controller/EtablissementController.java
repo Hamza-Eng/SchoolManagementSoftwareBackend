@@ -27,43 +27,36 @@ public class EtablissementController {
 	@Autowired
 	EtablissmentsService service;
 
-	 
-//	@PostMapping("/saveorupdate")
-//	public establishments saveOrUpdate(@RequestBody establishments t) {
-//		// TODO Auto-generated method stub
-//		System.out.println("=========§§§§§§§========>< " + t.toString());
-//		return service.saveOrUpdate(t);
-//	}
-//
-//	 
-//	@GetMapping("/findById/{id}")
-//	public Optional<establishments> findById(@PathVariable(name = "id") Long id) {
-//		// TODO Auto-generated method stub
-//		return service.findById(id);
-//	}
+	@PostMapping("/saveorupdate")
+	public EstablishmentDTO saveOrUpdate(@RequestBody EstablishmentDTO t) {
+		// TODO Auto-generated method stub
+		return service.saveOrUpdate(t);
+	}
 
-	 
+	@GetMapping("/findById/{id}")
+	public Optional<EstablishmentDTO> findById(@PathVariable(name = "id") Long id) {
+		// TODO Auto-generated method stub
+		return service.findById(id);
+	}
+
 	@GetMapping("/findByCriteria")
 	public Optional<establishments> findByCriteria(@RequestBody HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
-	 
 	@DeleteMapping("/delete/{id}")
 	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
-	 
 	@DeleteMapping("/deleteAll")
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return service.deleteAll();
 	}
 
-	 
 //	@GetMapping("/findAll")
 	public List<establishments> findAll() {
 		return null;

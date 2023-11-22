@@ -13,10 +13,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CenterDTO {
-	public Centers convertDtoToEntity(CenterDTO dto) {
-		
-		Centers center=new Centers();
-		
+
+	public static Centers convertFromDTOToEntity(CenterDTO dto) {
+		Centers center = new Centers();
 		center.setAdresse(dto.getAdresse());
 		center.setContent(dto.getContent());
 		center.setId(dto.getId());
@@ -27,8 +26,8 @@ public class CenterDTO {
 		center.setUpdatedAt(dto.getUpdatedAt());
 
 		return center;
-
 	}
+
 	public CenterDTO(Centers centre) {
 		super();
 		this.id = centre.getId();

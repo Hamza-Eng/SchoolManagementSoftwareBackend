@@ -31,8 +31,8 @@ public class EtablissmentsService {
 	@Autowired
 	CentersRepository centerRepository;
 
-	public EstablishmentDTO saveOrUpdate(establishments establishments) {
-		return new EstablishmentDTO(repo.save(establishments));
+	public EstablishmentDTO saveOrUpdate(EstablishmentDTO establishments) {
+		return new EstablishmentDTO(repo.save(EstablishmentDTO.convertFromDtoToEntity(establishments)));
 
 	}
 

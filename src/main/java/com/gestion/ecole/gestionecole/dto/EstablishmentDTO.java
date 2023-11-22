@@ -41,6 +41,34 @@ public class EstablishmentDTO {
 		this.updatedAt = establishment.getUpdatedAt();
 	}
 
+	public static establishments convertFromDtoToEntity(EstablishmentDTO establishmentDTO) {
+		establishments establishment = new establishments();
+		establishment.setId(establishmentDTO.getId());
+		establishment.setLogo(establishmentDTO.getLogo());
+		establishment.setName(establishmentDTO.getName());
+		establishment.setAdresse(establishmentDTO.getAdresse());
+		establishment.setVille(establishmentDTO.getVille());
+		establishment.setEmail(establishmentDTO.getEmail());
+		establishment.setDescc(establishmentDTO.getDescc());
+		establishment.setWeb(establishmentDTO.getWeb());
+		establishment.setIce(establishmentDTO.getIce());
+		establishment.setRc(establishmentDTO.getRc());
+		establishment.setPatente(establishmentDTO.getPatente());
+		establishment.setCnss(establishmentDTO.getCnss());
+		establishment.setIfs(establishmentDTO.getIfs());
+		establishment.setTel(establishmentDTO.getTel());
+		establishment.setPortable(establishmentDTO.getPortable());
+		establishment.setBanque(establishmentDTO.getBanque());
+		establishment.setAgence(establishmentDTO.getAgence());
+		establishment.setRib(establishmentDTO.getRib());
+		establishment.setImage(establishmentDTO.getImage());
+		establishment.setUserId(establishmentDTO.getUserId());
+		establishment.setCreatedAt(establishmentDTO.getCreatedAt());
+		establishment.setUpdatedAt(establishmentDTO.getUpdatedAt());
+
+		return establishment;
+	}
+
 	private Long id;
 
 	private String logo;

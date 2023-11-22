@@ -32,7 +32,6 @@ public class ClasseDTO {
 		this.anneeUniver = classe.getAnneeUniver();
 		this.niveauxId = classe.getNiveaux().getId();
 		this.niveauxName = classe.getNiveaux().getName();
-
 		this.createdAt = classe.getCreatedAt();
 		this.updatedAt = classe.getUpdatedAt();
 	}

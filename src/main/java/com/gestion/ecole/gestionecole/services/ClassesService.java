@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.gestion.ecole.gestionecole.dto.ClasseDTO;
 import com.gestion.ecole.gestionecole.dto.EtudiantDTO;
 import com.gestion.ecole.gestionecole.entities.Classes;
@@ -15,7 +16,7 @@ import com.gestion.ecole.gestionecole.entities.Etudiants;
 import com.gestion.ecole.gestionecole.repositories.ClassesRepository;
 import com.gestion.ecole.gestionecole.repositories.EtudiantsRepository;
 import com.gestion.ecole.gestionecole.repositories.NiveauxRepository;
-import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
+import com.gestion.ecole.gestionecole.utility.JsonMapper;
 
 @Service
 public class ClassesService {
@@ -55,7 +56,8 @@ public class ClassesService {
 		return null;
 	}
 
-	public List<ClasseDTO> findAll() {
+	public List<ClasseDTO> findAll() throws JsonProcessingException {
+
 		return repo.findAll().stream().map(this::convertToDto).collect(Collectors.toList());
 	}
 
