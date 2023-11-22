@@ -28,19 +28,19 @@ public class EtablissementController {
 	EtablissmentsService service;
 
 	 
-	@PostMapping("/saveorupdate")
-	public establishments saveOrUpdate(@RequestBody establishments t) {
-		// TODO Auto-generated method stub
-		System.out.println("=========§§§§§§§========>< " + t.toString());
-		return service.saveOrUpdate(t);
-	}
-
-	 
-	@GetMapping("/findById/{id}")
-	public Optional<establishments> findById(@PathVariable(name = "id") Long id) {
-		// TODO Auto-generated method stub
-		return service.findById(id);
-	}
+//	@PostMapping("/saveorupdate")
+//	public establishments saveOrUpdate(@RequestBody establishments t) {
+//		// TODO Auto-generated method stub
+//		System.out.println("=========§§§§§§§========>< " + t.toString());
+//		return service.saveOrUpdate(t);
+//	}
+//
+//	 
+//	@GetMapping("/findById/{id}")
+//	public Optional<establishments> findById(@PathVariable(name = "id") Long id) {
+//		// TODO Auto-generated method stub
+//		return service.findById(id);
+//	}
 
 	 
 	@GetMapping("/findByCriteria")
@@ -71,7 +71,7 @@ public class EtablissementController {
 
 	@GetMapping("/findAll")
 	private List<EstablishmentDTO> findAllV() {
-		return service.findAllV2();
+		return service.findAll();
 
 	}
 

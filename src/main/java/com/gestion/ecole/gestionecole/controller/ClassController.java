@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gestion.ecole.gestionecole.dto.ClasseDTO;
 import com.gestion.ecole.gestionecole.entities.Classes;
 import com.gestion.ecole.gestionecole.services.ClassesService;
 
@@ -59,9 +60,9 @@ public class ClassController {
 	}
 
 	@GetMapping("/findAll")
-	public ResponseEntity<List<Classes>> findAll() {
-		List<Classes> classes = service.findAll();
-		return new ResponseEntity<>(classes, HttpStatus.OK);
+	public ResponseEntity<List<ClasseDTO>> findAll() {
+
+		return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
 	}
 
 }

@@ -35,7 +35,9 @@ public class Niveaux {
 	@Column(name = "id")
 	private long id;
 
-	private String tarife;;
+	private String tarife;
+
+	private String Name;
 
 	@ManyToOne
 	@JoinColumn(name = "filiere_id")

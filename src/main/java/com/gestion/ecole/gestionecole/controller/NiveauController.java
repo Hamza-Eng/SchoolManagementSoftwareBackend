@@ -21,56 +21,50 @@ import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/niveau")
-public class NiveauController  {
+public class NiveauController {
 
 	@Autowired
 	NiveauxService service;
 
 	@PostMapping("/saveorupdate")
-	 
+
 	public Niveaux saveOrUpdate(@RequestBody Niveaux t) {
 		// TODO Auto-generated method stub
 		return service.saveOrUpdate(t);
 	}
 
 	@GetMapping("/findbyid{id} ")
-	 
+
 	public Optional<Niveaux> findById(Long id) {
 		// TODO Auto-generated method stub
 		return service.findById(id);
 	}
 
 	@GetMapping("/findbycriteria")
-	 
+
 	public Optional<Niveaux> findByCriteria(HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
 	@DeleteMapping("/delete{id}")
-	 
+
 	public Boolean delete(Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
 	@DeleteMapping("/deleteall")
-	 
+
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return service.deleteAll();
 	}
 
-	 
-	public List<Niveaux> findAll() {
+	@GetMapping("/findAll")
+	public List<NiveauxDTO> findAll() {
 		// TODO Auto-generated method stub
 		return service.findAll();
-	}
-
-	@GetMapping("/findAll")
-	public List<NiveauxDTO> findAllV2() {
-		// TODO Auto-generated method stub
-		return service.findAllV2();
 	}
 
 }

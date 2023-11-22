@@ -56,11 +56,9 @@ public class CenterService {
 	}
 
 	 
-	public List<Centers> findAll() {
-		return repo.findAll();
-	}
 
-	public List<CenterDTO> findAllV2() {
+
+	public List<CenterDTO> findAll() {
 		return repo.findAll().stream().map(this::convertCenterToDto).collect(Collectors.toList());
 		
 	}

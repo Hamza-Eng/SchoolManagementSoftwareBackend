@@ -24,23 +24,19 @@ public class NiveauxService {
 	@Autowired
 	ClassesRepository crepo;
 
-	 
 	public Niveaux saveOrUpdate(Niveaux niveaux) {
 		return repo.save(niveaux);
 	}
 
-	 
 	public Optional<Niveaux> findById(Long id) {
 
 		return repo.findById(id);
 	}
 
-	 
 	public Optional<Niveaux> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
-	 
 	public Boolean delete(Long id) {
 		try {
 			repo.deleteById(id);
@@ -51,17 +47,11 @@ public class NiveauxService {
 		}
 	}
 
-	 
 	public Boolean deleteAll() {
 		return null;
 	}
 
-	 
-	public List<Niveaux> findAll() {
-		return repo.findAll();
-	}
-
-	public List<NiveauxDTO> findAllV2() {
+	public List<NiveauxDTO> findAll() {
 		return repo.findAll().stream().map(this::convertNiveauToDto).collect(Collectors.toList());
 	}
 

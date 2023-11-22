@@ -61,15 +61,11 @@ public class CenterController {
 	}
 
 	 
-//	@GetMapping("/findAll")
-	public List<Centers> findAll() {
 
-		return service.findAll();
-	}
 
 	@GetMapping("/findAll")
-	public List<CenterDTO> findAllV2() {
+	public List<CenterDTO> findAll() {
 
-		return service.findAllV2();
+		return service.findAll();
 	}
 }

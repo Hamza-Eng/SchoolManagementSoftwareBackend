@@ -31,17 +31,17 @@ public class EtablissmentsService {
 	@Autowired
 	CentersRepository centerRepository;
 
-	public establishments saveOrUpdate(establishments establishments) {
+	public EstablishmentDTO saveOrUpdate(establishments establishments) {
+		return new EstablishmentDTO(repo.save(establishments));
 
-		return repo.save(establishments);
 	}
 
-	public Optional<establishments> findById(Long id) {
+	public Optional<EstablishmentDTO> findById(Long id) {
 
-		return repo.findById(id);
+		return Optional.of(new EstablishmentDTO(repo.findById(id).get()));
 	}
 
-	public Optional<establishments> findByCriteria(HashMap<String, String> map) {
+	public Optional<EstablishmentDTO> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
@@ -56,10 +56,16 @@ public class EtablissmentsService {
 	}
 
 	public Boolean deleteAll() {
-		return null;
+		try {
+			repo.deleteAll();
+			return true;
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			return false;
+		}
 	}
 
-	public List<EstablishmentDTO> findAllV2() {
+	public List<EstablishmentDTO> findAll() {
 
 		return repo.findAll().stream().map(this::convertToDto).collect(Collectors.toList());
 
@@ -78,8 +84,5 @@ public class EtablissmentsService {
 		return dto;
 	}
 
-	public List<establishments> findAll() {
-		// TODO Auto-generated method stub
-		return repo.findAll();
-	}
+	
 }

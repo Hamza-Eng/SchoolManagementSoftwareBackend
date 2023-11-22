@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClasseDTO {
-	public Classes dtoentity(ClasseDTO dto){
+	public Classes dtoentity(ClasseDTO dto) {
 		Classes classes = new Classes();
 		classes.setId(dto.getId());
 		classes.setNom(dto.getNom());
@@ -21,17 +21,18 @@ public class ClasseDTO {
 		classes.setNumero(dto.getNumero());
 		classes.setCreatedAt(dto.getCreatedAt());
 		classes.setUpdatedAt(dto.getUpdatedAt());
-		return  classes;
+		return classes;
 	}
 
 	public ClasseDTO(Classes classe) {
-		super();
+
 		this.id = classe.getId();
 		this.nom = classe.getNom();
 		this.numero = classe.getNumero();
 		this.anneeUniver = classe.getAnneeUniver();
 		this.niveauxId = classe.getNiveaux().getId();
-//		this.etudiants =classe.getEtudiants();
+		this.niveauxName = classe.getNiveaux().getName();
+
 		this.createdAt = classe.getCreatedAt();
 		this.updatedAt = classe.getUpdatedAt();
 	}
@@ -45,6 +46,8 @@ public class ClasseDTO {
 	private Date anneeUniver;
 
 	private Long niveauxId;
+
+	private String niveauxName;
 
 	private List<EtudiantDTO> etudiants;
 
