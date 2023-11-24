@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +31,7 @@ public class ClassController {
 	ClassesService service;
 
 	@PostMapping("/saveOrUpdate")
-	public Classes saveOrUpdate(@RequestBody Classes t) {
+	public ClasseDTO saveOrUpdate(@RequestBody ClasseDTO t) {
 		// TODO Auto-generated method stub
 		return service.saveOrUpdate(t);
 	}
@@ -60,7 +61,7 @@ public class ClassController {
 	}
 
 	@GetMapping("/findAll")
-	public ResponseEntity<List<ClasseDTO>> findAll() {
+	public ResponseEntity<List<ClasseDTO>> findAll() throws JsonProcessingException {
 
 		return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
 	}

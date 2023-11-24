@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.gestion.ecole.gestionecole.entities.Classes;
 
+import com.gestion.ecole.gestionecole.entities.Niveaux;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,8 +14,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClasseDTO {
-	public Classes dtoentity(ClasseDTO dto) {
+	public static Classes dtoentity(ClasseDTO dto) {
 		Classes classes = new Classes();
+		classes.setNiveaux(new Niveaux());
 		classes.setId(dto.getId());
 		classes.setNom(dto.getNom());
 		classes.setAnneeUniver(dto.getAnneeUniver());

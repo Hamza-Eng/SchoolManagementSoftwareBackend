@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.gestion.ecole.gestionecole.entities.Niveaux;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +29,15 @@ public class ClassesService {
 	@Autowired
 	EtudiantsRepository erepo;
 
-	public Classes saveOrUpdate(Classes classes) {
-		return repo.save(classes);
+	public ClasseDTO saveOrUpdate(ClasseDTO dto) {
+		Classes classes = ClasseDTO.dtoentity(dto);
+		classes.setNiveaux(nrepo.findById(dto.getNiveauxId()).get());
+
+
+
+		repo.save(classes);
+		return dto;
+
 	}
 
 	public Optional<Classes> findById(Long id) {
