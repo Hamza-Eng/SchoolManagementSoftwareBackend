@@ -56,7 +56,7 @@ public class ClassesService {
 		return null;
 	}
 
-	public List<ClasseDTO> findAll() throws JsonProcessingException {
+	public List<ClasseDTO> findAll() {
 
 		return repo.findAll().stream().map(this::convertToDto).collect(Collectors.toList());
 	}

@@ -27,8 +27,8 @@ public class CenterController {
 	CenterService service;
 
 	 
-	@PostMapping("/add")
-	public Centers saveOrUpdate(@RequestBody Centers center) {
+	@PostMapping("/saveOrUpdate")
+	public CenterDTO saveOrUpdate(@RequestBody CenterDTO center) {
 		// TODO Auto-generated method stub
 		return service.saveOrUpdate(center);
 	}

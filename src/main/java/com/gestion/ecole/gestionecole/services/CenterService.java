@@ -15,7 +15,6 @@ import com.gestion.ecole.gestionecole.entities.Cycles;
 import com.gestion.ecole.gestionecole.repositories.CentersRepository;
 import com.gestion.ecole.gestionecole.repositories.CyclesRepository;
 import com.gestion.ecole.gestionecole.repositories.EtablissmentsRepository;
-import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 
 /***
  * @author hamza
@@ -30,8 +29,14 @@ public class CenterService {
 	@Autowired
 	CyclesRepository crepo;
 	 
-	public Centers saveOrUpdate(Centers centre) {
-		return repo.save(centre);
+	public CenterDTO saveOrUpdate(CenterDTO dto) {
+		Centers center = CenterDTO.convertFromDTOToEntity(dto);
+
+		center.setEtablissements(erepo.findById(dto.getEtablissementId()).get());
+
+		repo.save(center);
+
+		return dto;
 	}
 
 	 
