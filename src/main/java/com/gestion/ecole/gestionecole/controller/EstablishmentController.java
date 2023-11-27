@@ -16,16 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gestion.ecole.gestionecole.dto.EstablishmentDTO;
 import com.gestion.ecole.gestionecole.entities.establishments;
-import com.gestion.ecole.gestionecole.services.EtablissmentsService;
-import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
+import com.gestion.ecole.gestionecole.services.EstablishmentService;
 
 @RestController
 @RequestMapping("/etablissement")
 @CrossOrigin
-public class EtablissementController {
+public class EstablishmentController {
 
 	@Autowired
-	EtablissmentsService service;
+	EstablishmentService service;
 
 	@PostMapping("/saveorupdate")
 	public EstablishmentDTO saveOrUpdate(@RequestBody EstablishmentDTO t) {

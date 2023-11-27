@@ -25,7 +25,7 @@ import jakarta.transaction.Transactional;
  */
 @Service
 @Transactional
-public class EtablissmentsService {
+public class EstablishmentService {
 	@Autowired
 	EtablissmentsRepository repo;
 	@Autowired
