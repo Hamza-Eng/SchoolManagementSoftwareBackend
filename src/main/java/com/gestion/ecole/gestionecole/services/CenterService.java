@@ -28,7 +28,7 @@ public class CenterService {
 	EtablissmentsRepository erepo;
 	@Autowired
 	CyclesRepository crepo;
-	 
+
 	public CenterDTO saveOrUpdate(CenterDTO dto) {
 		Centers center = CenterDTO.convertFromDTOToEntity(dto);
 
@@ -39,33 +39,26 @@ public class CenterService {
 		return dto;
 	}
 
-	 
 	public Optional<Centers> findById(Long id) {
 		return repo.findById(id);
 	}
 
-	 
 	public Optional<Centers> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
-	 
 	public Boolean delete(Long id) {
 		return repo.existsById(id);
 	}
 
-	 
 	public Boolean deleteAll() {
 		return null;
 
 	}
 
-	 
-
-
 	public List<CenterDTO> findAll() {
 		return repo.findAll().stream().map(this::convertCenterToDto).collect(Collectors.toList());
-		
+
 	}
 
 	private CenterDTO convertCenterToDto(Centers centre) {
@@ -74,9 +67,10 @@ public class CenterService {
 		return dto;
 
 	}
+
 	private CycleDTO convertCycleToDto(Cycles cycle) {
-	CycleDTO dto=new CycleDTO(cycle);
-	return dto;
+		CycleDTO dto = new CycleDTO(cycle);
+		return dto;
 
 	}
 

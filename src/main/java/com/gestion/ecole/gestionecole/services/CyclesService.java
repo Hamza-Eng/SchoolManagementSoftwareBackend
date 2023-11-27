@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.gestion.ecole.gestionecole.entities.Cycles;
 import com.gestion.ecole.gestionecole.repositories.CyclesRepository;
-import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 
 /***
  * @author hamza
@@ -20,25 +19,21 @@ public class CyclesService {
 	@Autowired
 	CyclesRepository repo;
 
-	 
 	public Cycles saveOrUpdate(Cycles cycles) {
 
 		return repo.save(cycles);
 	}
 
-	 
 	public Optional<Cycles> findById(Long id) {
 
 		return repo.findById(id);
 	}
 
-	 
 	public Optional<Cycles> findByCriteria(HashMap<String, String> map) {
 
 		return Optional.empty();
 	}
 
-	 
 	public Boolean delete(Long id) {
 
 		try {
@@ -50,12 +45,10 @@ public class CyclesService {
 		}
 	}
 
-	 
 	public Boolean deleteAll() {
 		return null;
 	}
 
-	 
 	public List<Cycles> findAll() {
 		return repo.findAll();
 	}

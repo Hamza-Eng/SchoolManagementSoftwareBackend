@@ -8,30 +8,25 @@ import org.springframework.stereotype.Service;
 
 import com.gestion.ecole.gestionecole.entities.Employes;
 import com.gestion.ecole.gestionecole.repositories.EmployesRepository;
-import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 
 @Service
 public class EmployeService {
 	EmployesRepository repo;
 
-	 
 	public Employes saveOrUpdate(Employes employes) {
 
 		return repo.save(employes);
 	}
 
-	 
 	public Optional<Employes> findById(Long id) {
 
 		return repo.findById(id);
 	}
 
-	 
 	public Optional<Employes> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
-	 
 	public Boolean delete(Long id) {
 
 		try {
@@ -43,12 +38,10 @@ public class EmployeService {
 		}
 	}
 
-	 
 	public Boolean deleteAll() {
 		return null;
 	}
 
-	 
 	public List<Employes> findAll() {
 
 		return repo.findAll();

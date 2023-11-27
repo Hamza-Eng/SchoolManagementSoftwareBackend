@@ -9,34 +9,29 @@ import org.springframework.stereotype.Service;
 
 import com.gestion.ecole.gestionecole.entities.Filieres;
 import com.gestion.ecole.gestionecole.repositories.FilieresRepository;
-import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 
 /***
  * @author hamza
  * 
  */
 @Service
-public class FilieresService  {
+public class FilieresService {
 	@Autowired
 	FilieresRepository repo;
 
-	 
 	public Filieres saveOrUpdate(Filieres filieres) {
 
 		return repo.save(filieres);
 	}
 
-	 
 	public Optional<Filieres> findById(Long id) {
 		return repo.findById(id);
 	}
 
-	 
 	public Optional<Filieres> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
-	 
 	public Boolean delete(Long id) {
 
 		try {
@@ -48,12 +43,10 @@ public class FilieresService  {
 		}
 	}
 
-	 
 	public Boolean deleteAll() {
 		return null;
 	}
 
-	 
 	public List<Filieres> findAll() {
 		return repo.findAll();
 	}

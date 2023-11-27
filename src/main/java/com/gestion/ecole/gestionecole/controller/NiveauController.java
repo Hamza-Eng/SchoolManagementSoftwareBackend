@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gestion.ecole.gestionecole.dto.NiveauxDTO;
 import com.gestion.ecole.gestionecole.entities.Niveaux;
 import com.gestion.ecole.gestionecole.services.NiveauxService;
-import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
