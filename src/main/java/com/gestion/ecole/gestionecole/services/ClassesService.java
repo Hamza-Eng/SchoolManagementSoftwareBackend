@@ -48,16 +48,8 @@ public class ClassesService {
 		return Optional.empty();
 	}
 
-	public Boolean delete(Long id) {
-
-		try {
-			repo.deleteById(id);
-			return true;
-		} catch (Exception e) {
-			e.getMessage();
-			return false;
-		}
-
+	public void delete(Long id) {
+		repo.deleteById(id);
 	}
 
 	public Boolean deleteAll() {

@@ -42,9 +42,9 @@ public class ClassController {
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public Boolean delete(@PathVariable(name = "id") Long id) {
-		// TODO Auto-generated method stub
-		return service.delete(id);
+	public ResponseEntity<?> delete(@PathVariable(name = "id") Long id) {
+		service.delete(id);
+		return new ResponseEntity<>( HttpStatus.OK) ;
 	}
 
 	@DeleteMapping("/deleteAll")
