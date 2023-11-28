@@ -4,8 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import com.gestion.ecole.gestionecole.entities.Classes;
-
 import com.gestion.ecole.gestionecole.entities.Niveaux;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

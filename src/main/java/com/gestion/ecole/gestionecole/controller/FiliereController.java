@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gestion.ecole.gestionecole.entities.Filieres;
 import com.gestion.ecole.gestionecole.services.FilieresService;
-import com.gestion.ecole.gestionecole.utility.ControllerGenerator;
 
 @CrossOrigin
 @RestController
@@ -27,42 +26,36 @@ public class FiliereController {
 	@Autowired
 	FilieresService service;
 
-	 
 	@PostMapping("/saveOrUpdate")
 	public Filieres saveOrUpdate(@RequestBody Filieres t) {
 		// TODO Auto-generated method stub
 		return service.saveOrUpdate(t);
 	}
 
-	 
 	@GetMapping("/findById/{id}")
 	public Optional<Filieres> findById(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.findById(id);
 	}
 
-	 
 	@GetMapping("/findByCriteria")
 	public Optional<Filieres> findByCriteria(HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
-	 
 	@DeleteMapping("/delete/{id}")
 	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
-	 
 	@DeleteMapping("/deleteAll")
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return service.deleteAll();
 	}
 
-	 
 	@GetMapping("/findAll")
 	public List<Filieres> findAll() {
 		// TODO Auto-generated method stub
