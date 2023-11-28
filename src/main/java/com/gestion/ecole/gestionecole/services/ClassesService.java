@@ -67,6 +67,19 @@ public class ClassesService {
 	public List<ClasseDTO> findAll() {
 
 		return repo.findAll().stream().map(this::convertToDto).collect(Collectors.toList());
+
+	}
+	public Classes updateClasse(Long id,  ClasseDTO classes){
+		Classes classes1=repo.findById(id).orElse(null);
+		if(classes1!=null){
+			classes1 =ClasseDTO.dtoentity(classes);
+			classes1.setNiveaux(nrepo.findById(classes.getNiveauxId()).get());
+			return  repo.save(classes1);
+		}
+		else return null;
+
+
+
 	}
 
 	private ClasseDTO convertToDto(Classes classe) {
