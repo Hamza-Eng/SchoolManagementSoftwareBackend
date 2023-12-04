@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class EmployeeDTO {
-	public Employes toEntity(EmployeeDTO dto) {
+	public Employes toEntity(EmployeeDTO dto){
 		Employes employes = new Employes();
 		employes.setId(dto.getId());
 		employes.setCv(dto.getCv());
@@ -35,7 +35,7 @@ public class EmployeeDTO {
 		employes.setUpdatedAt(dto.getUpdatedAt());
 		employes.setPortable(dto.getPortable());
 
-		return employes;
+		return  employes;
 	}
 
 	public EmployeeDTO(Employes employes) {

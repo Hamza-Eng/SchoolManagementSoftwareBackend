@@ -14,7 +14,7 @@ import com.gestion.ecole.gestionecole.entities.Centers;
 import com.gestion.ecole.gestionecole.entities.Cycles;
 import com.gestion.ecole.gestionecole.repositories.CentersRepository;
 import com.gestion.ecole.gestionecole.repositories.CyclesRepository;
-import com.gestion.ecole.gestionecole.repositories.EtablissmentsRepository;
+import com.gestion.ecole.gestionecole.repositories.EstablishmentRepository;
 
 /***
  * @author hamza
@@ -25,10 +25,10 @@ public class CenterService {
 	@Autowired
 	CentersRepository repo;
 	@Autowired
-	EtablissmentsRepository erepo;
+	EstablishmentRepository erepo;
 	@Autowired
 	CyclesRepository crepo;
-
+	 
 	public CenterDTO saveOrUpdate(CenterDTO dto) {
 		Centers center = CenterDTO.convertFromDTOToEntity(dto);
 
@@ -39,26 +39,38 @@ public class CenterService {
 		return dto;
 	}
 
+	 
 	public Optional<Centers> findById(Long id) {
 		return repo.findById(id);
 	}
 
+	 
 	public Optional<Centers> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
+	 
 	public Boolean delete(Long id) {
-		return repo.existsById(id);
+		try {
+			 repo.deleteById(id);
+			 return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
+	 
 	public Boolean deleteAll() {
 		return null;
 
 	}
 
+	 
+
+
 	public List<CenterDTO> findAll() {
 		return repo.findAll().stream().map(this::convertCenterToDto).collect(Collectors.toList());
-
+		
 	}
 
 	private CenterDTO convertCenterToDto(Centers centre) {
@@ -67,10 +79,9 @@ public class CenterService {
 		return dto;
 
 	}
-
 	private CycleDTO convertCycleToDto(Cycles cycle) {
-		CycleDTO dto = new CycleDTO(cycle);
-		return dto;
+	CycleDTO dto=new CycleDTO(cycle);
+	return dto;
 
 	}
 

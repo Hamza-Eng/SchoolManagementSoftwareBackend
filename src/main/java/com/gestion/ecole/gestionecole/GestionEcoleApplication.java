@@ -24,7 +24,7 @@ import com.gestion.ecole.gestionecole.entities.establishments;
 import com.gestion.ecole.gestionecole.repositories.CentersRepository;
 import com.gestion.ecole.gestionecole.repositories.ClassesRepository;
 import com.gestion.ecole.gestionecole.repositories.CyclesRepository;
-import com.gestion.ecole.gestionecole.repositories.EtablissmentsRepository;
+import com.gestion.ecole.gestionecole.repositories.EstablishmentRepository;
 import com.gestion.ecole.gestionecole.repositories.EtudiantsRepository;
 import com.gestion.ecole.gestionecole.repositories.FilieresRepository;
 import com.gestion.ecole.gestionecole.repositories.NiveauxRepository;
@@ -37,7 +37,7 @@ public class GestionEcoleApplication {
 	}
 
 	@Bean
-	CommandLineRunner start(EtudiantsRepository erepo, EtablissmentsRepository repo,
+	CommandLineRunner start(EtudiantsRepository erepo, EstablishmentRepository repo,
 			CentersRepository centersRepository, CyclesRepository cyclesRepository,
 			FilieresRepository filieresRepository, NiveauxRepository niveauxRepository,
 			ClassesRepository classesRepository, EtudiantsRepository etudiantsRepository) {

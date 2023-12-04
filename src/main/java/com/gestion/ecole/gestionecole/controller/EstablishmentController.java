@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,9 +47,9 @@ public class EstablishmentController {
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public Boolean delete(@PathVariable(name = "id") Long id) {
+	public ResponseEntity<Boolean> delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
-		return service.delete(id);
+		return new ResponseEntity<>(service.delete(id), HttpStatus.OK);
 	}
 
 	@DeleteMapping("/deleteAll")

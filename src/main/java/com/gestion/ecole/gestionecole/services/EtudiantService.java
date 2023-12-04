@@ -15,20 +15,24 @@ public class EtudiantService {
 	@Autowired
 	EtudiantsRepository repo;
 
+	 
 	public Etudiants saveOrUpdate(Etudiants etudiants) {
 
 		return repo.save(etudiants);
 	}
 
+	 
 	public Optional<Etudiants> findById(Long id) {
 
 		return repo.findById(id);
 	}
 
+	 
 	public Optional<Etudiants> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
+	 
 	public Boolean delete(Long id) {
 
 		try {
@@ -40,10 +44,12 @@ public class EtudiantService {
 		}
 	}
 
+	 
 	public Boolean deleteAll() {
 		return null;
 	}
 
+	 
 	public List<Etudiants> findAll() {
 
 		return repo.findAll();

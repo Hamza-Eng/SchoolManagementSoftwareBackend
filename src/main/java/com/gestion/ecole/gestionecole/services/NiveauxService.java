@@ -14,7 +14,6 @@ import com.gestion.ecole.gestionecole.entities.Classes;
 import com.gestion.ecole.gestionecole.entities.Niveaux;
 import com.gestion.ecole.gestionecole.repositories.ClassesRepository;
 import com.gestion.ecole.gestionecole.repositories.NiveauxRepository;
-import com.gestion.ecole.gestionecole.utility.ServiceGeneratore;
 
 @Service
 public class NiveauxService {

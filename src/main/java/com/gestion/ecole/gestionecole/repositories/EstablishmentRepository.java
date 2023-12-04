@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.gestion.ecole.gestionecole.entities.establishments;
 
 @Repository
-public interface EtablissmentsRepository extends JpaRepository<establishments, Long> {
+public interface EstablishmentRepository extends JpaRepository<establishments, Long> {
 
 }
