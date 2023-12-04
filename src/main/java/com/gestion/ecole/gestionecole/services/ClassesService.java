@@ -45,16 +45,8 @@ public class ClassesService {
 		return Optional.empty();
 	}
 
-	public Boolean delete(Long id) {
-
-		try {
-			repo.deleteById(id);
-			return true;
-		} catch (Exception e) {
-			e.getMessage();
-			return false;
-		}
-
+	public void delete(Long id) {
+		repo.deleteById(id);
 	}
 
 	public Boolean deleteAll() {
@@ -64,6 +56,19 @@ public class ClassesService {
 	public List<ClasseDTO> findAll() {
 
 		return repo.findAll().stream().map(this::convertToDto).collect(Collectors.toList());
+
+	}
+	public Classes updateClasse(Long id,  ClasseDTO classes){
+		Classes classes1=repo.findById(id).orElse(null);
+		if(classes1!=null){
+			classes1 =ClasseDTO.dtoentity(classes);
+			classes1.setNiveaux(nrepo.findById(classes.getNiveauxId()).get());
+			return  repo.save(classes1);
+		}
+		else return null;
+
+
+
 	}
 
 	private ClasseDTO convertToDto(Classes classe) {

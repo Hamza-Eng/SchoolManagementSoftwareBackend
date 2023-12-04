@@ -7,14 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.gestion.ecole.gestionecole.dto.ClasseDTO;
@@ -49,9 +42,9 @@ public class ClassController {
 	}
 
 	@DeleteMapping("/delete/{id}")
-	public Boolean delete(@PathVariable(name = "id") Long id) {
-		// TODO Auto-generated method stub
-		return service.delete(id);
+	public ResponseEntity<?> delete(@PathVariable(name = "id") Long id) {
+		service.delete(id);
+		return new ResponseEntity<>( HttpStatus.OK) ;
 	}
 
 	@DeleteMapping("/deleteAll")
@@ -65,5 +58,16 @@ public class ClassController {
 
 		return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
 	}
+	@PutMapping("/update/{id}")
+	public ResponseEntity<Classes> updateClasse(
+			@PathVariable Long id,
+			@RequestBody ClasseDTO classes
+
+	 ){
+		Classes classes1 = service.updateClasse(id,classes);
+		return  new ResponseEntity<Classes>(classes1, HttpStatus.OK);
+
+	}
+
 
 }
