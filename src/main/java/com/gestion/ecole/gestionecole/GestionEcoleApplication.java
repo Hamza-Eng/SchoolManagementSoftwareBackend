@@ -77,10 +77,10 @@ public class GestionEcoleApplication {
 			employes.add(Employes.builder().build());
 
 			List<Cycles> cycles = new ArrayList<>();
-			cycles.add(Cycles.builder().build());
-			cycles.add(Cycles.builder().build());
-			cycles.add(Cycles.builder().build());
-			cycles.add(Cycles.builder().build());
+			cycles.add(Cycles.builder().name("cycle 1").description("escription 1 ").build());
+			cycles.add(Cycles.builder().name("cycle 2").description("escription 2 ").build());
+			cycles.add(Cycles.builder().name("cycle 3").description("escription 3 ").build());
+			cycles.add(Cycles.builder().name("cycle 4").description("escription 4 ").build());
 
 			List<Filieres> filieres = new ArrayList<>();
 			filieres.add(Filieres.builder().build());
