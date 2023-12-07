@@ -18,7 +18,7 @@ public class FilieresDTO {
 		this.intitule = filiere.getIntitule();
 		this.anneetude = filiere.getAnneetude();
 		this.description = filiere.getDescription();
-		this.cycle = filiere.getCycle();
+		this.cycleId = filiere.getCycle().getId();
 //		this.niveauxs =filiere.getNiveauxs();
 		this.createdAt = filiere.getCreatedAt();
 		this.updatedAt = filiere.getUpdatedAt();
@@ -34,7 +34,7 @@ public class FilieresDTO {
 
 	private String description;
 
-	private Cycles cycle;
+	private Long cycleId;
 
 	private List<NiveauxDTO> niveauxs;
 

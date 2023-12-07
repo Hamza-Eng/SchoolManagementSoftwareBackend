@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gestion.ecole.gestionecole.dto.CycleDTO;
 import com.gestion.ecole.gestionecole.entities.Cycles;
 import com.gestion.ecole.gestionecole.services.CyclesService;
 
@@ -62,7 +63,7 @@ public class CycleController  {
 
 	 
 	@GetMapping("/findAll")
-	public List<Cycles> findAll() {
+	public List<CycleDTO> findAll() {
 		// TODO Auto-generated method stub
 		return service.findAll();
 	}

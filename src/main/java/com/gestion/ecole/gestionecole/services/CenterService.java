@@ -75,6 +75,7 @@ public class CenterService {
 
 	private CenterDTO convertCenterToDto(Centers centre) {
 		CenterDTO dto = new CenterDTO(centre);
+	
 		dto.setCycles(crepo.findByCentre(centre).stream().map(this::convertCycleToDto).collect(Collectors.toList()));
 		return dto;
 

@@ -43,12 +43,12 @@ public class Cycles {
 	private String name;
 
 	private String description;
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "centre_id")
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JsonIgnore
 	private Centers centre;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cycle", fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cycle")
 	private List<Filieres> filieres;
 
 	@Temporal(TemporalType.TIMESTAMP)

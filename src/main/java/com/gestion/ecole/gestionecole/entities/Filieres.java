@@ -9,6 +9,7 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -49,9 +50,7 @@ public class Filieres {
 	@Column(name = "description")
 	private String description;
 
-	@ManyToOne
-	@JoinColumn(name = "cycle_id")
-	@JsonIgnore
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Cycles cycle;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "filiere")

@@ -9,6 +9,9 @@ import lombok.Data;
 
 @Data
 public class CycleDTO {
+	public CycleDTO() {
+		// TODO Auto-generated constructor stub
+	}
 	public Cycles dtotorntity(CycleDTO dto){
 		Cycles cycle = new Cycles();
 		cycle.setId(dto.getId());

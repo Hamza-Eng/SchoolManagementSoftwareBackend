@@ -49,7 +49,7 @@ public class Centers {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private establishments etablissements;
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "centre")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "centre" )
 	private List<Cycles> cycles;
 
 	@Temporal(TemporalType.TIMESTAMP)
