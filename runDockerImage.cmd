@@ -1,0 +1,1 @@
+docker run -p 8060:8060  hamzamadani217/gestionecole-backend
