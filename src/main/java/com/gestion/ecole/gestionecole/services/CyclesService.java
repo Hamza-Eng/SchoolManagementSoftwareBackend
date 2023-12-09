@@ -12,6 +12,7 @@ import com.gestion.ecole.gestionecole.dto.CycleDTO;
 import com.gestion.ecole.gestionecole.dto.FilieresDTO;
 import com.gestion.ecole.gestionecole.entities.Cycles;
 import com.gestion.ecole.gestionecole.entities.Filieres;
+import com.gestion.ecole.gestionecole.repositories.CentersRepository;
 import com.gestion.ecole.gestionecole.repositories.CyclesRepository;
 import com.gestion.ecole.gestionecole.repositories.FilieresRepository;
 
@@ -25,10 +26,14 @@ public class CyclesService {
 	CyclesRepository repo;
 	@Autowired
 	FilieresRepository frepo;
+	@Autowired
+	CentersRepository crepo;
 
-	public Cycles saveOrUpdate(Cycles cycles) {
+	public CycleDTO saveOrUpdate(CycleDTO dto) {
 
-		return repo.save(cycles);
+		Cycles cycle = CycleDTO.convertFromDTOToEntity(dto);
+		cycle.setCentre(crepo.findById(dto.getCentreId()).get());
+		return new CycleDTO(repo.save(cycle));
 	}
 
 	public Optional<Cycles> findById(Long id) {
@@ -57,7 +62,7 @@ public class CyclesService {
 	}
 
 	public List<CycleDTO> findAll() {
-		
+
 		return repo.findAll().stream().map(this::convertcycleToDto).collect(Collectors.toList());
 	}
 

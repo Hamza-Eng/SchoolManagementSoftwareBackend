@@ -3,12 +3,15 @@ package com.gestion.ecole.gestionecole.dto;
 import java.util.Date;
 import java.util.List;
 
-import com.gestion.ecole.gestionecole.entities.Cycles;
 import com.gestion.ecole.gestionecole.entities.Filieres;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class FilieresDTO {
 
 	public FilieresDTO(Filieres filiere) {

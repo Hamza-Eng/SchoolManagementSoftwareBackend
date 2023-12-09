@@ -30,8 +30,6 @@ public class ClassesService {
 		Classes classes = ClasseDTO.dtoentity(dto);
 		classes.setNiveaux(nrepo.findById(dto.getNiveauxId()).get());
 
-
-
 		repo.save(classes);
 		return dto;
 
@@ -58,16 +56,15 @@ public class ClassesService {
 		return repo.findAll().stream().map(this::convertToDto).collect(Collectors.toList());
 
 	}
-	public Classes updateClasse(Long id,  ClasseDTO classes){
-		Classes classes1=repo.findById(id).orElse(null);
-		if(classes1!=null){
-			classes1 =ClasseDTO.dtoentity(classes);
+
+	public Classes updateClasse(Long id, ClasseDTO classes) {
+		Classes classes1 = repo.findById(id).orElse(null);
+		if (classes1 != null) {
+			classes1 = ClasseDTO.dtoentity(classes);
 			classes1.setNiveaux(nrepo.findById(classes.getNiveauxId()).get());
-			return  repo.save(classes1);
-		}
-		else return null;
-
-
+			return repo.save(classes1);
+		} else
+			return null;
 
 	}
 

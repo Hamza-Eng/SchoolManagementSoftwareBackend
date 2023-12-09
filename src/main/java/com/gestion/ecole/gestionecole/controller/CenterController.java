@@ -25,42 +25,34 @@ public class CenterController {
 	@Autowired
 	CenterService service;
 
-	 
 	@PostMapping("/saveOrUpdate")
 	public CenterDTO saveOrUpdate(@RequestBody CenterDTO center) {
 		// TODO Auto-generated method stub
 		return service.saveOrUpdate(center);
 	}
 
-	 
 	@GetMapping("/findById/{id}")
 	public Optional<Centers> findById(@PathVariable(name = "id") Long id) {
 
 		return service.findById(id);
 	}
 
-	 
 	@GetMapping("/findByCriteria")
 	public Optional<Centers> findByCriteria(@RequestBody HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
-	 
 	@DeleteMapping("/delete/{id}")
 	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
-	 
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	 
-
 
 	@GetMapping("/findAll")
 	public List<CenterDTO> findAll() {

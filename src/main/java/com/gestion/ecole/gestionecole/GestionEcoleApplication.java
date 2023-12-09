@@ -59,16 +59,24 @@ public class GestionEcoleApplication {
 //			etudiants.add(Etudiants.builder().build());
 
 			List<Centers> centres = new ArrayList<>();
-			centres.add(Centers.builder().nomcentre("center 1").adresse("adresse  1").email("email1@gmail.com").tel("987654151").build());
-			centres.add(Centers.builder().nomcentre("center 2").adresse("adresse  2").email("email2@gmail.com").tel("987654152").build());
-			centres.add(Centers.builder().nomcentre("center 3").adresse("adresse  3").email("email3@gmail.com").tel("987654153").build());
-			centres.add(Centers.builder().nomcentre("center 4").adresse("adresse  4").email("email4@gmail.com").tel("987654154").build());
+			centres.add(Centers.builder().nomcentre("center 1").adresse("adresse  1").email("email1@gmail.com")
+					.tel("987654151").build());
+			centres.add(Centers.builder().nomcentre("center 2").adresse("adresse  2").email("email2@gmail.com")
+					.tel("987654152").build());
+			centres.add(Centers.builder().nomcentre("center 3").adresse("adresse  3").email("email3@gmail.com")
+					.tel("987654153").build());
+			centres.add(Centers.builder().nomcentre("center 4").adresse("adresse  4").email("email4@gmail.com")
+					.tel("987654154").build());
 
 			List<establishments> etablissements = new ArrayList<>();
-			etablissements.add(establishments.builder().email("123@gmil.com").ice("987654321P").tel("0625874136").name("establishment beni mellal").banque("9876543218521498").adresse("azilal").build());
-			etablissements.add(establishments.builder().email("123@gmil.com").ice("987654321P").tel("0625874136").name("establishment Tanger").banque("9876543218521498").adresse("beni mellal").build());
-			etablissements.add(establishments.builder().email("123@gmil.com").ice("987654321P").tel("0625874136").name("establishment Agadir").banque("9876543245621498").adresse("agadir").build());
-			etablissements.add(establishments.builder().email("123@gmil.com").ice("987654321P").tel("0625874136").name("establishment rabat").banque("9876543265421498").adresse("tanger").build());
+			etablissements.add(establishments.builder().email("123@gmil.com").ice("987654321P").tel("0625874136")
+					.name("establishment beni mellal").banque("9876543218521498").adresse("azilal").build());
+			etablissements.add(establishments.builder().email("123@gmil.com").ice("987654321P").tel("0625874136")
+					.name("establishment Tanger").banque("9876543218521498").adresse("beni mellal").build());
+			etablissements.add(establishments.builder().email("123@gmil.com").ice("987654321P").tel("0625874136")
+					.name("establishment Agadir").banque("9876543245621498").adresse("agadir").build());
+			etablissements.add(establishments.builder().email("123@gmil.com").ice("987654321P").tel("0625874136")
+					.name("establishment rabat").banque("9876543265421498").adresse("tanger").build());
 
 			List<Employes> employes = new ArrayList<>();
 			employes.add(Employes.builder().build());
@@ -95,8 +103,8 @@ public class GestionEcoleApplication {
 			niveaux.add(Niveaux.builder().build());
 
 			List<Classes> classes = new ArrayList<>();
-			classes.add(Classes.builder().nom("primary 2").anneeUniver(new Date(2022)).numero("12").etudiants(new ArrayList<>())
-					.niveaux(new Niveaux()).build());
+			classes.add(Classes.builder().nom("primary 2").anneeUniver(new Date(2022)).numero("12")
+					.etudiants(new ArrayList<>()).niveaux(new Niveaux()).build());
 			classes.add(Classes.builder().nom("primary 3").build());
 			classes.add(Classes.builder().build());
 			classes.add(Classes.builder().build());

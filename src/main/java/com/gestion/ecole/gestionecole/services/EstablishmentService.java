@@ -41,10 +41,7 @@ public class EstablishmentService {
 
 	public Optional<EstablishmentDTO> findByCriteria(HashMap<String, String> map) {
 
-		repo.findAll().stream()
-		.filter(e -> e.getName() == "")
-		.filter(null)
-		.collect(Collectors.toList());
+		repo.findAll().stream().filter(e -> e.getName() == "").filter(null).collect(Collectors.toList());
 		return Optional.empty();
 	}
 

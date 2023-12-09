@@ -12,14 +12,16 @@ public class CycleDTO {
 	public CycleDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	public Cycles dtotorntity(CycleDTO dto){
+
+	public static Cycles convertFromDTOToEntity(CycleDTO dto) {
 		Cycles cycle = new Cycles();
 		cycle.setId(dto.getId());
+		cycle.setDescription(dto.getDescription());
 		cycle.setName(dto.getName());
 		cycle.setCreatedAt(dto.getCreatedAt());
 		cycle.setUpdatedAt(dto.getUpdatedAt());
 
-		return  cycle;
+		return cycle;
 	}
 
 	public CycleDTO(Cycles cycles) {

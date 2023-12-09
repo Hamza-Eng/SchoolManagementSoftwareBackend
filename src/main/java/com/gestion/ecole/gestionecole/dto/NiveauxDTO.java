@@ -10,7 +10,7 @@ import lombok.Data;
 
 @Data
 public class NiveauxDTO {
-	
+
 	public NiveauxDTO(Niveaux niveaux) {
 		super();
 		this.id = niveaux.getId();

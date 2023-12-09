@@ -21,47 +21,41 @@ import com.gestion.ecole.gestionecole.services.EtudiantService;
 @RestController
 @RequestMapping("/etudiant")
 
-public class EtudiantController  {
+public class EtudiantController {
 
 	@Autowired
 	EtudiantService service;
 
-	 
 	@PostMapping("/saveOrUpdate")
 	public Etudiants saveOrUpdate(@RequestBody Etudiants t) {
 		// TODO Auto-generated method stub
 		return service.saveOrUpdate(t);
 	}
 
-	 
 	@GetMapping("/findById/{id}")
 	public Optional<Etudiants> findById(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.findById(id);
 	}
 
-	 
 	@GetMapping("/findByCriteria")
 	public Optional<Etudiants> findByCriteria(HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		return Optional.empty();
 	}
 
-	 
 	@DeleteMapping("/delete/{id}")
 	public Boolean delete(@PathVariable(name = "id") Long id) {
 		// TODO Auto-generated method stub
 		return service.delete(id);
 	}
 
-	 
 	@DeleteMapping("/deleteAll")
 	public Boolean deleteAll() {
 		// TODO Auto-generated method stub
 		return service.deleteAll();
 	}
 
-	 
 	@GetMapping("/findAll")
 	public List<Etudiants> findAll() {
 		// TODO Auto-generated method stub

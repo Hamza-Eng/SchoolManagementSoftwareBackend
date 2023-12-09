@@ -15,22 +15,18 @@ public class TarifsService {
 	@Autowired
 	TarifsRepository repo;
 
-	 
 	public Tarifs saveOrUpdate(Tarifs tarifs) {
 		return repo.save(tarifs);
 	}
 
-	 
 	public Optional<Tarifs> findById(Long id) {
 		return repo.findById(id);
 	}
 
-	 
 	public Optional<Tarifs> findByCriteria(HashMap<String, String> map) {
 		return Optional.empty();
 	}
 
-	 
 	public Boolean delete(Long id) {
 		try {
 			repo.deleteById(id);
@@ -41,12 +37,10 @@ public class TarifsService {
 		}
 	}
 
-	 
 	public Boolean deleteAll() {
 		return null;
 	}
 
-	 
 	public List<Tarifs> findAll() {
 		return repo.findAll();
 	}
