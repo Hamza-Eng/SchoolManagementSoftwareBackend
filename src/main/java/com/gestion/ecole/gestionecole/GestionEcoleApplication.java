@@ -45,7 +45,7 @@ public class GestionEcoleApplication {
 		return arg -> {
 
 //			Etablissements etablissements2 = new Etablissements();
-//
+// test comment
 //	        // Use ObjectMapper to convert the object to JSON
 //	        ObjectMapper objectMapper = new ObjectMapper();
 //	        String json = objectMapper.writeValueAsString(etablissements2);
