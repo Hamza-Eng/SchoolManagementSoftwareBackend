@@ -18,6 +18,8 @@ import com.gestion.ecole.gestionecole.dto.CenterDTO;
 import com.gestion.ecole.gestionecole.entities.Centers;
 import com.gestion.ecole.gestionecole.services.CenterService;
 
+import ch.qos.logback.core.model.Model;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/center")
@@ -25,6 +27,7 @@ public class CenterController {
 	@Autowired
 	CenterService service;
 
+	
 	@PostMapping("/saveOrUpdate")
 	public CenterDTO saveOrUpdate(@RequestBody CenterDTO center) {
 		// TODO Auto-generated method stub

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.gestion.ecole.gestionecole.GestionEcoleApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.843 s - in com.gestion.ecole.gestionecole.GestionEcoleApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.014 s - in com.gestion.ecole.gestionecole.GestionEcoleApplicationTests
